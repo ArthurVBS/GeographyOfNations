@@ -54,7 +54,6 @@ header .icon a i
 header .icon a:hover i
 {
     transform: rotateY(185deg);
-    color: var(--violet);
 }
 
 header .icon a:first-child i

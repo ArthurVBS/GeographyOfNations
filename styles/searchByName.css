@@ -7,6 +7,26 @@ body
     background-color: white;
 }
 
+header
+{
+    background-color: var(--violet);
+}
+
+header .icon a
+{
+    color: var(--violet);
+}
+
+header .icon a:hover i
+{
+    color: var(--green);
+}
+
+header .icon a .selected
+{
+    background-color: var(--violet);
+}
+
 main
 {
     display: flex;
@@ -45,6 +65,12 @@ main .home .container p
     font-size: 1.2em;
     letter-spacing: 1px;
     text-align: center;
+}
+
+main .home .container p span
+{
+    color: var(--green);
+    font-weight: 700;
 }
 
 main .home .imgBox

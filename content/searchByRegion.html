@@ -10,11 +10,21 @@
     <title>+ Nações</title>
 </head>
 <body>
+    <header id="header">
+        <h3 class="logo">+ Nações</h3>
+        <div class="icon">
+            <a href="../index.html"><i class="fas fa-home"></i></a>
+            <a href="./searchByName.html"><i class="fas fa-search-location"></i></a>
+            <a href="./searchByLang.html"><i class="fas fa-language"></i></a>
+            <a href="#"><i class="fas fa-globe-americas selected"></i></a>
+            <a href="./contact.html"><i class="fas fa-user-alt"></i></a>
+        </div>
+    </header>
     <main id="main">
         <section class="home">
             <div class="container">
                 <h1>Geografia das Nações</h1>
-                <p>Busque pela região da nação e veja a sua descrição!</p>
+                <p>Busque pela <span>região</span> da nação e veja a sua descrição!</p>
             </div>
             <div class="imgBox">
                 <img src="../images/undraw-earth.png" alt="Arte Mapa Mundi no Notebook">
@@ -27,13 +37,8 @@
             </div>
         </section>
     </main>
-
-    <script type="module">
-        import buildHeader from '../scripts/_header.js'
-        import buildFooter from '../scripts/_footer.js'
-        
-        buildHeader('violet', 3)
-        buildFooter()
-        </script>
+    <footer>
+        <p>Made By <a href="https://github.com/ArthurVBS" target="_blank" rel="external">ArthurV.B.S.</a></p>
+    </footer>
     <script src="../scripts/dynamicHeader.js"></script>
 </body>

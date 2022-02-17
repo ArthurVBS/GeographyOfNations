@@ -1,3 +1,151 @@
 @import url('./default.css');
 @import url('./_header.css');
 @import url('./_footer.css');
+
+body
+{
+    background-color: white;
+}
+
+header
+{
+    background-color: var(--green);
+}
+
+header .icon a
+{
+    color: var(--green);
+}
+
+header .icon a:hover i
+{
+    color: var(--blue);
+}
+
+header .icon a .selected
+{
+    background-color: var(--green);
+}
+
+main
+{
+    display: flex;
+    flex-direction: column;
+}
+
+main .home
+{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 16px;
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+main .home .container
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: stretch;
+    gap: 32px;
+    padding: 16px;
+}
+
+main .home .container h1
+{
+    color: var(--green);
+    text-align: center;
+    font-size: 2.5em;
+}
+
+main .home .container p
+{
+    font-size: 1.2em;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+main .home .imgBox
+{
+    max-width: 580px;
+    margin: 0 auto;
+}
+
+main .home .imgBox img
+{
+    width: 100%;
+}
+
+main .contact
+{
+    background-color: var(--blue);
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    padding: 16px;
+}
+
+main .contact img
+{
+    max-width: 250px;
+    width: 100%;
+    margin: 0 auto;
+    box-shadow: 4px 4px 10px #00000090;
+    border: white 8px solid;
+    border-radius: 20%;
+}
+
+main .contact .text
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+}
+
+main .contact .text h1
+{
+    color: white;
+    text-align: center;
+    letter-spacing: 1px;
+    font-size: 1.7em;
+    padding: 8px;
+}
+
+main .contact .text i
+{
+    font-size: 0.8em;
+}
+
+main .contact .text h4
+{
+    color: white;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: 400;
+    padding: 8px;
+}
+
+@media screen and (min-width: 768px)
+{
+    main .home, main .contact
+    {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    main .home .container h1
+    {
+        font-size: 3em;
+    }
+    main .contact .text h1, main .contact .text h4
+    {
+        text-align: start;
+    }
+    main .contact img
+    {
+        max-width: 280px;
+    }
+}

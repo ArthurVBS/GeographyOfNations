@@ -7,6 +7,26 @@ body
     background-color: white;
 }
 
+header
+{
+    background-color: var(--blue);
+}
+
+header .icon a
+{
+    color: var(--blue);
+}
+
+header .icon a:hover i
+{
+    color: var(--violet);
+}
+
+header .icon a .selected
+{
+    background-color: var(--blue);
+}
+
 main
 {
     display: flex;

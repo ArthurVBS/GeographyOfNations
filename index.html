@@ -10,10 +10,20 @@
     <title>+ Nações</title>
 </head>
 <body>
+    <header id="header">
+        <h3 class="logo">+ Nações</h3>
+        <div class="icon">
+            <a href="#"><i class="fas fa-home selected"></i></a>
+            <a href="./content/searchByName.html"><i class="fas fa-search-location"></i></a>
+            <a href="./content/searchByLang.html"><i class="fas fa-language"></i></a>
+            <a href="./content/searchByRegion.html"><i class="fas fa-globe-americas"></i></a>
+            <a href="./content/contact.html"><i class="fas fa-user-alt"></i></a>
+        </div>
+    </header>
     <main id="main">
         <section class="home">
             <div class="container">
-                <h1>Geografia das Nações</h1>
+                <h1>Boas-vindas ao projeto +Nações!</h1>
                 <p>Busque por nações e veja as suas informações!</p>
             </div>
             <div class="imgBox">
@@ -40,14 +50,9 @@
             </div>
         </section>
     </main>
-
-    <script type="module">
-        import buildHeader from './scripts/_header.js'
-        import buildFooter from './scripts/_footer.js'
-        
-        buildHeader('blue', 0)
-        buildFooter()
-        </script>
+    <footer>
+        <p>Made By <a href="https://github.com/ArthurVBS" target="_blank" rel="external">ArthurV.B.S.</a></p>
+    </footer>
     <script src="scripts/dynamicHeader.js"></script>
 </body>
 </html>

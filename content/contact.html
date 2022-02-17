@@ -10,16 +10,36 @@
     <title>+ Nações</title>
 </head>
 <body>
+    <header id="header">
+        <h3 class="logo">+ Nações</h3>
+        <div class="icon">
+            <a href="../index.html"><i class="fas fa-home"></i></a>
+            <a href="./searchByName.html"><i class="fas fa-search-location"></i></a>
+            <a href="./searchByLang.html"><i class="fas fa-language"></i></a>
+            <a href="./searchByRegion.html"><i class="fas fa-globe-americas"></i></a>
+            <a href="#"><i class="fas fa-user-alt selected"></i></a>
+        </div>
+    </header>
     <main id="main">
-        <h1>Em Construção!</h1>
-        <p>Por favor torne a página anterior</p>
+        <section class="home">
+            <div class="container">
+                <h1>Olá! Hello! Salut! Hola!</h1>
+                <p>Saiba mais sobre o desenvolvedor deste site!</p>
+            </div>
+            <div class="imgBox">
+                <img src="../images/undraw-contact.png" alt="Arte do Mapa Mundi">
+            </div>
+        </section>
+        <section class="contact">
+            <img src="https://avatars.githubusercontent.com/u/84406367?v=4" alt="Foto do desenvolvedor">
+            <div class="text">
+                <h1>Olá! <i class="far fa-hand-peace"></i> Sou Arthur Vinícius</h1>
+                <h4>Criador <i class="fas fa-tools"></i> e Desenvolvedor <i class="fas fa-laptop-code"></i> do projeto '+ Nações'.</h4>
+            </div>
+        </section>
     </main>
-    <script type="module">
-        import buildHeader from '../scripts/_header.js'
-        import buildFooter from '../scripts/_footer.js'
-        
-        buildHeader('green', 4)
-        buildFooter()
-        </script>
+    <footer>
+        <p>Made By <a href="https://github.com/ArthurVBS" target="_blank" rel="external">ArthurV.B.S.</a></p>
+    </footer>
     <script src="../scripts/dynamicHeader.js"></script>
 </body>
