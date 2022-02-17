@@ -1,0 +1,24 @@
+footer
+{
+    padding: 16px;
+}
+
+footer p
+{
+    color: var(--violet);
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: 700;
+}
+
+footer p a
+{
+    color: var(--blue);
+    transition: all 0.5s;
+}
+
+footer p a:hover
+{
+    color: var(--green);
+    letter-spacing: 1px;
+}

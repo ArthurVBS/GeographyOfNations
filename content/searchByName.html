@@ -6,23 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.css">
-    <link rel="stylesheet" href="../styles/default.css">
     <link rel="stylesheet" href="../styles/searchByName.css">
     <title>+ Nações</title>
 </head>
 <body>
-    <header id="header">
-        <h3 class="logo">+ Nações</h3>
-        <div class="icon">
-            <a href="../index.html"><i class="fas fa-home"></i></a>
-            <a href="#"><i class="fas fa-search-location"></i></a>
-            <a href="searchByLang.html"><i class="fas fa-language"></i></a>
-            <a href="searchByRegion.html"><i class="fas fa-globe-americas"></i></a>
-            <a href="contact.html"><i class="fas fa-user-alt"></i></a>
-        </div>
-    </header>
-
-    <main>
+    <main id="main">
         <section class="home">
             <div class="container">
                 <h1>Geografia das Nações</h1>
@@ -40,9 +28,13 @@
         </section>
     </main>
 
-    <footer>
-        <p>Made by <a href="https://github.com/ArthurVBS" target="_blank" rel="external">Arthur V.B.S.</a></p>
-    </footer>
+    <script type="module">
+        import buildHeader from '../scripts/_header.js'
+        import buildFooter from '../scripts/_footer.js'
+        
+        buildHeader('violet', 1)
+        buildFooter()
+        </script>
     <script src="../scripts/dynamicHeader.js"></script>
 </body>
 </html>

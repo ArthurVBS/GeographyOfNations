@@ -6,11 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.css">
-    <link rel="stylesheet" href="../styles/default.css">
-    <!-- Inserir o estilo! -->
+    <link rel="stylesheet" href="../styles/searchByRegion.css">
     <title>+ Nações</title>
 </head>
 <body>
-    <h1>Em Construção!</h1>
-    <p>Por favor torne a página anterior</p>
+    <main id="main">
+        <section class="home">
+            <div class="container">
+                <h1>Geografia das Nações</h1>
+                <p>Busque pela região da nação e veja a sua descrição!</p>
+            </div>
+            <div class="imgBox">
+                <img src="../images/undraw-earth.png" alt="Arte Mapa Mundi no Notebook">
+            </div>
+        </section>
+        <section class="search">
+            <div class="container">
+                <input class="searchInput" type="text" placeholder="Insira aqui a região da Nação">
+                <button class="searchButton"><i class="fas fa-search"></i></button>
+            </div>
+        </section>
+    </main>
+
+    <script type="module">
+        import buildHeader from '../scripts/_header.js'
+        import buildFooter from '../scripts/_footer.js'
+        
+        buildHeader('violet', 3)
+        buildFooter()
+        </script>
+    <script src="../scripts/dynamicHeader.js"></script>
 </body>

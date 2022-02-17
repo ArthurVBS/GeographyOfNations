@@ -1,82 +1,10 @@
+@import url('./default.css');
+@import url('./_header.css');
+@import url('./_footer.css');
+
 body
 {
     background-color: white;
-}
-
-header
-{
-    position: sticky;
-    background-color: var(--blue);
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-    gap: 32px;
-    padding: 16px;
-    transition: all 1s;
-}
-
-header .logo
-{
-    color: white;
-    font-size: 1.5em;
-    font-weight: 700;
-}
-
-header .icon
-{
-    background-color: white;
-    display: flex;
-    padding: 8px;
-    border-radius: 20px;
-}
-
-header .icon a:first-child
-{
-    border-right: 1px solid #CCC;
-}
-
-header .icon a:last-child
-{
-    border-left: 1px solid #CCC;
-}
-
-header .icon a i
-{
-    color: var(--blue);
-    padding: 8px;
-    margin: 0 12px;
-    border-radius: 20px;
-    transition: all 1.5s;
-}
-
-header .icon a:hover i
-{
-    transform: rotateY(185deg);
-    color: var(--violet);
-}
-
-header .icon a:first-child i
-{
-    margin: 0 12px 0 0 ;
-}
-
-header .icon a:last-child i
-{
-    margin: 0 0 0 12px ;
-}
-
-header .icon a .fa-home
-{
-    background-color: var(--blue);
-    color: white;
-    transition: all 1s;
-}
-
-header .icon a:hover .fa-home
-{
-    color: white;
 }
 
 main
@@ -220,31 +148,6 @@ main .search div:nth-child(2) h3 a, main .search div:nth-child(2) i
 main .search div:nth-child(3) h3 a, main .search div:nth-child(3) i
 {
     color: var(--violet);
-}
-
-footer
-{
-    padding: 16px;
-}
-
-footer p
-{
-    color: var(--violet);
-    text-align: center;
-    font-size: 1.1em;
-    font-weight: 700;
-}
-
-footer p a
-{
-    color: var(--blue);
-    transition: all 0.5s;
-}
-
-footer p a:hover
-{
-    color: var(--green);
-    letter-spacing: 1px;
 }
 
 @media screen and (min-width: 768px)

@@ -1,7 +1,7 @@
 var lastScrollTop = 0
-header = document.getElementById('header')
 
 window.addEventListener('scroll', () => {
+    let header = document.getElementById('header')
     let scrollTop = this.window.scrollY || this.document.documentElement.scrollTop
 
     if (scrollTop > lastScrollTop)
