@@ -1,6 +1,6 @@
 @import url('./default.css');
-@import url('./_header.css');
-@import url('./_footer.css');
+@import url('./header.css');
+@import url('./footer.css');
 
 body
 {
