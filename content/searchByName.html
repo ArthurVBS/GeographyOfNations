@@ -30,10 +30,19 @@
                 <img src="../images/undraw-earth.png" alt="Arte Mapa Mundi no Notebook">
             </div>
         </section>
-        <section class="search">
+        <section class="search" id="name">
             <div class="container">
                 <input class="searchInput" type="text" placeholder="Insira aqui o nome da Nação">
                 <button class="searchButton"><i class="fas fa-search"></i></button>
+            </div>
+        </section>
+        <section class="results hide">
+            <div class="container">
+                <div id="nationFlag"></div>
+                <div class="text">
+                    <h2 id="nationName"></h2>
+                    <h4 id="nationCapital"></h4>
+                </div>
             </div>
         </section>
     </main>
@@ -41,5 +50,6 @@
         <p>Made By <a href="https://github.com/ArthurVBS" target="_blank" rel="external">ArthurV.B.S.</a></p>
     </footer>
     <script src="../scripts/dynamicHeader.js"></script>
+    <script src="../scripts/connection.js"></script>
 </body>
 </html>
