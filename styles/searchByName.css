@@ -10,6 +10,7 @@ body
 header
 {
     background-color: var(--violet);
+    z-index: 10;
 }
 
 header .icon a
@@ -202,7 +203,7 @@ main .results .container .text #nationName
     color: white;
 }
 
-main .results .container .text #nationCapital
+main .results .container .text h4
 {
     text-align: center;
     color: white;

@@ -36,9 +36,15 @@ function displayResults(nation)
     if (search.type == 'name')
     {
         const dataByNameSearch = {
+            div: document.querySelector('.text'),
             flag: document.getElementById('nationFlag'),
             name: document.getElementById('nationName'),
-            capital: document.getElementById('nationCapital')
+            lang: document.getElementById('nationLang'),
+            region: document.getElementById('nationRegion'),
+            capital: document.createElement('h4'),
+            population: document.getElementById('nationPopulation'),
+            currenciesName: document.getElementById('nationCurrenciesName'),
+            currenciesSymbol: document.getElementById('nationCurrenciesSymbol')
         }
         nation = nation[0]
 
@@ -48,7 +54,28 @@ function displayResults(nation)
 
         dataByNameSearch.flag.innerHTML = `<img src="${nation.flags.png}" alt="Bandeira da Nação">`
         dataByNameSearch.name.innerText = nation.translations.por.common
+
         dataByNameSearch.capital.innerText = nation.capital
+        dataByNameSearch.capital.id = 'nationCapital'
+        dataByNameSearch.div.appendChild(dataByNameSearch.capital)
+
+        dataByNameSearch.region.innerText = nation.continents
+        dataByNameSearch.lang.innerText = Object.values(nation.languages)
+        dataByNameSearch.currenciesName.innerText = Object.values(nation.currencies)[0].name
+        dataByNameSearch.currenciesSymbol.innerText = Object.values(nation.currencies)[0].symbol
+
+        if (nation.population < 1000000)
+        {
+            dataByNameSearch.population.innerText = `${(nation.population / 1000).toFixed(1) } K`
+        }
+        else if (nation.population < 1000000000)
+        {
+            dataByNameSearch.population.innerText = `${(nation.population / 1000000).toFixed(1) } Mi`
+        }
+        else
+        {
+            dataByNameSearch.population.innerText = `${(nation.population / 1000000000).toFixed(1) } Bi`
+        }
 
         console.log(nation)
     }
