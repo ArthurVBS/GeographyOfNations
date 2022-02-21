@@ -14,25 +14,25 @@
 <body>
     <header id="header">
         <h3 class="logo">+ Nações</h3>
-        <div class="icon">
-            <a href="#"><i class="fas fa-home selected"></i></a>
-            <a href="./content/searchByName.html"><i class="fas fa-search-location"></i></a>
-            <a href="./content/searchByLang.html"><i class="fas fa-language"></i></a>
-            <a href="./content/searchByRegion.html"><i class="fas fa-globe-americas"></i></a>
-            <a href="./content/contact.html"><i class="fas fa-user-alt"></i></a>
+        <div class="iconBox">
+            <a class="iconLink" href="#"><i class="fas fa-home selected icon"></i></a>
+            <a class="iconLink" href="./content/searchByName.html"><i class="fas fa-search-location icon"></i></a>
+            <a class="iconLink" href="./content/searchByLang.html"><i class="fas fa-language icon"></i></a>
+            <a class="iconLink" href="./content/searchByRegion.html"><i class="fas fa-globe-americas icon"></i></a>
+            <a class="iconLink" href="./content/contact.html"><i class="fas fa-user-alt icon"></i></a>
         </div>
     </header>
     <main id="main">
         <section class="home">
-            <div class="container">
-                <h1>Boas-vindas ao projeto +Nações!</h1>
-                <p>Busque por nações e veja as suas informações!</p>
+            <div class="textBox">
+                <h1 class="textTitle">Boas-vindas ao projeto +Nações!</h1>
+                <p class="textParagraph">Busque por nações e veja as suas informações!</p>
             </div>
-            <div class="imgBox">
-                <img src="images/undraw-world.png" alt="Arte do Mapa Mundi">
+            <div class="undrawBox">
+                <img class="undrawImage" src="images/undraw-world.png" alt="Arte do Mapa Mundi">
             </div>
         </section>
-        <section class="search">
+        <section class="searchType">
             <div class="searchByName" data-animation="bottom">
                 <i class="fas fa-search-location"></i>
                 <h3>Busque pelo <a href="./content/searchByName.html">Nome</a> de uma nação.</h3>
@@ -52,8 +52,8 @@
             </div>
         </section>
     </main>
-    <footer>
-        <p>Made By <a href="https://github.com/ArthurVBS" target="_blank" rel="external">ArthurV.B.S.</a></p>
+    <footer id="footer">
+        <p class="madeByText">Made By <a class="madeByLink" href="https://github.com/ArthurVBS" target="_blank" rel="external">ArthurV.B.S.</a></p>
     </footer>
     <script src="./scripts/dynamicHeader.js"></script>
     <script src="./scripts/scrollTrigger.js"></script>

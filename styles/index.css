@@ -1,71 +1,37 @@
 @charset "UTF-8";
 
-header
+/* Header */
+
+#header, .selected
 {
     background-color: var(--blue);
 }
 
-header .icon a
+.iconLink
 {
     color: var(--blue);
 }
 
-header .icon a:hover i
+.iconLink:hover .fas.icon
 {
     color: var(--violet);
 }
 
-header .icon a .selected
+.iconLink:hover .fas.icon.selected
 {
-    background-color: var(--blue);
+    color: white;
 }
 
-main .home
-{
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 32px;
-    padding: 16px;
-    max-width: 1080px;
-    margin: 0 auto;
-}
+/* Home Section */
 
-main .home .container
-{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: stretch;
-    gap: 32px;
-    padding: 16px;
-}
-
-main .home .container h1
+.textTitle
 {
     color: var(--green);
-    text-align: center;
-    font-size: 2.5em;
 }
 
-main .home .container p
-{
-    font-size: 1.2em;
-    letter-spacing: 1px;
-    text-align: center;
-}
+/* SearchType Section */
 
-main .home .imgBox
-{
-    max-width: 580px;
-    margin: 0 auto;
-}
-
-main .home .imgBox img
-{
-    width: 100%;
-}
-
-main .search
+main .searchType
 {
     background-image: url(../images/bg-world.jpg);
     background-color: var(--violet);
@@ -81,7 +47,7 @@ main .search
     padding: 48px 16px;
 }
 
-main .search div
+main .searchType div
 {
     background-color: #FFFFFF30;
     color: white;
@@ -96,7 +62,7 @@ main .search div
     flex-basis: 280px;
 }
 
-main .search div i
+main .searchType div i
 {
     background-color: #00000090;
     display: flex;
@@ -110,61 +76,49 @@ main .search div i
     border-bottom-right-radius: 20px;
 }
 
-main .search div a:last-child
+main .searchType div a:last-child
 {
     align-self: flex-end;
 }
 
-main .search div a:last-child i
+main .searchType div a:last-child i
 {
     transition: all 1s;
 }
 
-main .search div a:last-child:hover i
+main .searchType div a:last-child:hover i
 {
     transform: rotateZ(360deg);
 }
 
-main .search div h3
+main .searchType div h3
 {
     text-align: center;
     padding: 16px;
 }
 
-main .search div h3 a
+main .searchType div h3 a
 {
     text-decoration: underline wavy transparent;
     transition: all 0.5s;
 }
 
-main .search div h3 a:hover
+main .searchType div h3 a:hover
 {
     text-decoration: underline wavy;
 }
 
-main .search div:nth-child(1) h3 a, main .search div:nth-child(1) i
+main .searchType div:nth-child(1) h3 a, main .searchType div:nth-child(1) i
 {
     color: var(--blue);
 }
 
-main .search div:nth-child(2) h3 a, main .search div:nth-child(2) i
+main .searchType div:nth-child(2) h3 a, main .searchType div:nth-child(2) i
 {
     color: var(--green);
 }
 
-main .search div:nth-child(3) h3 a, main .search div:nth-child(3) i
+main .searchType div:nth-child(3) h3 a, main .searchType div:nth-child(3) i
 {
     color: var(--violet);
-}
-
-@media screen and (min-width: 768px)
-{
-    main .home
-    {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    main .home .container h1
-    {
-        font-size: 3em;
-    }
 }
