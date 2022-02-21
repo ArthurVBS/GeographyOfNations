@@ -1,14 +1,5 @@
 @charset "UTF-8";
 
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;700&display=swap');
-
-:root
-{
-    --blue: #00B0FF;
-    --green: #0ED095;
-    --violet: #A362EA;
-}
-
 *
 {
     padding: 0;
@@ -27,5 +18,21 @@ html
 body
 {
     min-height: 100vh;
-    font-family: 'Quicksand', sans-serif;
+}
+
+blockquote, q
+{
+    quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after
+{
+    content: '';
+    content: none;
+}
+
+table
+{
+    border-collapse: collapse;
+    border-spacing: 0;
 }

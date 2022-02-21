@@ -1,11 +1,4 @@
-@import url('./default.css');
-@import url('./header.css');
-@import url('./footer.css');
-
-body
-{
-    background-color: white;
-}
+@charset "UTF-8";
 
 header
 {
@@ -26,12 +19,6 @@ header .icon a:hover i
 header .icon a .selected
 {
     background-color: var(--violet);
-}
-
-main
-{
-    display: flex;
-    flex-direction: column;
 }
 
 main .home

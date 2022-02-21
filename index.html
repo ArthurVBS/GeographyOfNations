@@ -7,6 +7,8 @@
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.css">
     <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/globalStyle.css">
+    <link rel="stylesheet" href="styles/reset.css">
     <title>+ Nações</title>
 </head>
 <body>
@@ -31,19 +33,19 @@
             </div>
         </section>
         <section class="search">
-            <div class="searchByName">
+            <div class="searchByName" data-animation="bottom">
                 <i class="fas fa-search-location"></i>
                 <h3>Busque pelo <a href="./content/searchByName.html">Nome</a> de uma nação.</h3>
                 <a href="./content/searchByName.html"><i class="fas fa-link"></i></a>
             </div>
 
-            <div class="searchByLang">
+            <div class="searchByLang" data-animation="bottom" data-animation-delay="low">
                 <i class="fas fa-language"></i>
                 <h3>Busque pela <a href="./content/searchByLang.html">Linguagem</a> de uma nação.</h3>
                 <a href="./content/searchByLang.html"><i class="fas fa-link"></i></a>
             </div>
 
-            <div class="searchByRegion">
+            <div class="searchByRegion" data-animation="bottom" data-animation-delay="medium">
                 <i class="fas fa-globe-americas"></i>
                 <h3>Busque pela <a href="./content/searchByRegion.html">Região</a> de uma nação.</h3>
                 <a href="./content/searchByRegion.html"><i class="fas fa-link"></i></a>
@@ -53,6 +55,7 @@
     <footer>
         <p>Made By <a href="https://github.com/ArthurVBS" target="_blank" rel="external">ArthurV.B.S.</a></p>
     </footer>
-    <script src="scripts/dynamicHeader.js"></script>
+    <script src="./scripts/dynamicHeader.js"></script>
+    <script src="./scripts/scrollTrigger.js"></script>
 </body>
 </html>
