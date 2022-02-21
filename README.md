@@ -27,9 +27,11 @@
 
 ## 📝 Features:
 
-- [ ] Ser responsivo (CSS)
-- [ ] Usar tags semânticas (HTML)
-- [ ] Consumir uma API
+- [x] Ser responsivo (CSS)
+- [x] Usar tags semânticas (HTML)
+- [x] Consumir uma API (JS)
+- [x] Utilizar ScrollTrigger (JS)
+- [x] Ter um Header Dinâmico (JS)
 
 ## ⚙️ Pré-requisitos:
 
