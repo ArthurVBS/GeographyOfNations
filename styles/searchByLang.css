@@ -31,6 +31,12 @@
 
 /* Results Section */
 
+section.results
+{
+    border-top: #00000020 2px solid;
+    border-bottom: #00000020 2px solid;
+}
+
 div.text
 {
     display: flex;
@@ -61,6 +67,14 @@ h2.number
     flex-grow: 1;
     border-radius: 10px;
     border: var(--violet) solid 2px;
+    padding: 8px;
+}
+
+h3.link
+{
+    color: var(--violet);
+    text-align: center;
+    flex-grow: 1;
     border-radius: 10px;
     border: var(--violet) solid 2px;
     padding: 8px;
@@ -71,8 +85,7 @@ ul.list
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
-    padding: 16px;
-    padding-top: 0px;
+    padding: 0px 16px;
 }
 
 li.item
@@ -91,6 +104,7 @@ li.item
 h4.name
 {
     text-align: center;
+    font-size: 1.2em;
 }
 
 a.flag
@@ -106,7 +120,7 @@ a.flag
     border: #00000020 4px solid;
     border-radius: 50%;
     margin: 0 auto;
-    transition: all 0.3s;
+    transition: all 0.3s ease-in;
 }
 
 a.flag:hover
@@ -114,4 +128,42 @@ a.flag:hover
     cursor: pointer;
     width: 100%;
     border-radius: 10px;
+}
+
+summary.detailsTitle
+{
+    color: var(--violet);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    font-size: 1.2em;
+    border-radius: 10px;
+    border: #00000020 2px solid;
+    margin-right: auto;
+}
+
+h4.detailsItem
+{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: var(--violet);
+    border-radius: 10px;
+    border: #00000020 2px solid;
+    margin-top: 2px;
+    gap: 4px;
+}
+
+h4.detailsItem .fas
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--violet);
+    width: 30px;
+    height: 30px;
+    border-right: #00000020 2px solid;
 }

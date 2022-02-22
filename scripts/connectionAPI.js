@@ -62,16 +62,11 @@ function resultsLang(language)
         sect: document.querySelector('section.results')
     }
 
-    // Show Section
-    elements['sect'].classList.remove('hide')
-
     elements['number'].innerText = language.length
 
     elements['lang'].innerText = search['input'].value
 
     elements['list'].innerText = ''
-
-    // li
 
     for (i = 0; i <= language.length - 1; i++)
     {
@@ -94,13 +89,42 @@ function resultsLang(language)
         flag.target = '_blank'
         flag.rel = 'external'
 
+        let details = document.createElement('details')
+
+        details.classList.add('details')
+
+        let summary = document.createElement('summary')
+
+        summary.addEventListener('click', () => {
+            details.open ? summary.innerHTML = '<i class="fas fa-caret-right"></i>' : summary.innerHTML = '<i class="fas fa-caret-down"></i>'
+        });
+
+        summary.innerHTML = '<i class="fas fa-caret-right"></i>'
+        summary.classList.add('detailsTitle')
+
+        let capital = document.createElement('h4')
+
+        capital.classList.add('detailsItem')
+        
+        language[i].capital == undefined ? capital.innerHTML = '<i class="fas fa-city"></i> Sem capital' : capital.innerHTML = `<i class="fas fa-city"></i> ${language[i].capital}` 
+
+        let continents = document.createElement('h4')
+
+        continents.classList.add('detailsItem')
+        continents.innerHTML = `<i class="fas fa-globe-americas"></i> ${language[i].continents}` 
+
         li.appendChild(name)
         li.appendChild(flag)
+        li.appendChild(details)
+        details.appendChild(summary)
+        details.appendChild(capital)
+        details.appendChild(continents)
         elements['list'].appendChild(li)
     }
 
     console.log(language)
 
+    elements['sect'].classList.remove('hide')
 }
 
 function resultsName(nation)
