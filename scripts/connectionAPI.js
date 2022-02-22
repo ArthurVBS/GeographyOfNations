@@ -41,7 +41,7 @@ function displayResults(nation)
     }
     else if (search.type == 'lang')
     {
-        console.log(nation)
+        resultsLang(nation)
     }
     else if (search.type == 'region')
     {
@@ -49,13 +49,63 @@ function displayResults(nation)
     }
     else
     {
-        console.log('Há um erro!')
+        console.log('Erro!')
     }
+}
+
+function resultsLang(language)
+{
+    const elements = {
+        lang: document.querySelector('h2.lang'),
+        number: document.querySelector('h2.number'),
+        list: document.querySelector('ul.list'),
+        sect: document.querySelector('section.results')
+    }
+
+    // Show Section
+    elements['sect'].classList.remove('hide')
+
+    elements['number'].innerText = language.length
+
+    elements['lang'].innerText = search['input'].value
+
+    elements['list'].innerText = ''
+
+    // li
+
+    for (i = 0; i <= language.length - 1; i++)
+    {
+        console.log(language[i])
+
+        let li = document.createElement('li')
+
+        li.classList.add('item')
+        
+        let name = document.createElement('h4')
+        
+        name.classList.add('name')
+        name.textContent = language[i].translations.por.common
+        
+        let flag = document.createElement('a')
+        
+        flag.classList.add('flag')
+        flag.style.backgroundImage = `url(${language[i].flags.png})`
+        flag.href = language[i].maps.googleMaps
+        flag.target = '_blank'
+        flag.rel = 'external'
+
+        li.appendChild(name)
+        li.appendChild(flag)
+        elements['list'].appendChild(li)
+    }
+
+    console.log(language)
+
 }
 
 function resultsName(nation)
 {
-    const dataByNameSearch = {
+    const elements = {
         flag: document.getElementById('nationFlag'),
         name: document.getElementById('nationName'),
         lang: document.getElementById('nationLang'),
@@ -69,29 +119,29 @@ function resultsName(nation)
     box.setAttribute('class', 'results')
     box.style.backgroundImage = `url(${nation.flags.png})`
 
-    dataByNameSearch.flag.innerHTML = `<img src="${nation.flags.png}" alt="Bandeira da Nação">`
+    elements.flag.innerHTML = `<img src="${nation.flags.png}" alt="Bandeira da Nação">`
 
-    dataByNameSearch.name.innerText = nation.translations.por.common
+    elements.name.innerText = nation.translations.por.common
 
-    dataByNameSearch.capital.innerText = nation.capital.toString().replace(/,/g , ', ')
+    elements.capital.innerText = nation.capital.toString().replace(/,/g , ', ')
 
-    dataByNameSearch.region.innerText = nation.continents
+    elements.region.innerText = nation.continents
 
-    dataByNameSearch.currencies.innerText = `${Object.values(nation.currencies)[0].name} (${Object.values(nation.currencies)[0].symbol})` 
+    elements.currencies.innerText = `${Object.values(nation.currencies)[0].name} (${Object.values(nation.currencies)[0].symbol})` 
     
-    dataByNameSearch.lang.innerText = Object.values(nation.languages).slice(0, 3).toString().replace(/,/g , ', ')
+    elements.lang.innerText = Object.values(nation.languages).slice(0, 3).toString().replace(/,/g , ', ')
 
     if (nation.population < 1000000)
     {
-        dataByNameSearch.population.innerText = `${(nation.population / 1000).toFixed(1) } K`
+        elements.population.innerText = `${(nation.population / 1000).toFixed(1) } K`
     }
     else if (nation.population < 1000000000)
     {
-        dataByNameSearch.population.innerText = `${(nation.population / 1000000).toFixed(1) } Mi`
+        elements.population.innerText = `${(nation.population / 1000000).toFixed(1) } Mi`
     }
     else
     {
-        dataByNameSearch.population.innerText = `${(nation.population / 1000000000).toFixed(1) } Bi`
+        elements.population.innerText = `${(nation.population / 1000000000).toFixed(1) } Bi`
     }
 
     console.log(nation)

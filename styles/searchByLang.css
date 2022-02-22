@@ -28,3 +28,90 @@
 {
     color: var(--blue);
 }
+
+/* Results Section */
+
+div.text
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    padding: 16px;
+}
+
+h2.lang
+{
+    letter-spacing: 1px;
+    text-align: center;
+    text-transform: capitalize;
+    flex-grow: 2;
+    border-radius: 10px;
+    border: var(--violet) solid 2px;
+    padding: 8px;
+}
+
+h2.number
+{
+    color: var(--violet);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-grow: 1;
+    border-radius: 10px;
+    border: var(--violet) solid 2px;
+    border-radius: 10px;
+    border: var(--violet) solid 2px;
+    padding: 8px;
+}
+
+ul.list
+{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 16px;
+    padding-top: 0px;
+}
+
+li.item
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+    flex-basis: 180px;
+    border-radius: 10px;
+    border: #00000020 solid 2px;
+    gap: 8px;
+    padding: 8px;
+}
+
+h4.name
+{
+    text-align: center;
+}
+
+a.flag
+{
+    background-color: var(--green);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-origin: border-box;
+    height: 100px;
+    width: 100px;
+    max-width: 250px;
+    border: #00000020 4px solid;
+    border-radius: 50%;
+    margin: 0 auto;
+    transition: all 0.3s;
+}
+
+a.flag:hover
+{
+    cursor: pointer;
+    width: 100%;
+    border-radius: 10px;
+}

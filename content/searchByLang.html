@@ -32,11 +32,18 @@
                 <img class="undrawImage" src="../images/undraw-earth.png" alt="Arte Mapa Mundi no Notebook">
             </div>
         </section>
-        <section class="search">
+        <section class="search" id="lang">
             <div class="searchContainer" data-animation="left">
                 <input class="searchInput" type="text" placeholder="Insira aqui a linguagem da Nação">
                 <button class="searchButton"><i class="fas fa-search"></i></button>
             </div>
+        </section>
+        <section class="results hide">
+            <div class="text">
+                <h2 class="lang"></h2>
+                <h2 class="number"></h4>
+            </div>
+            <ul class="list"></ul>
         </section>
     </main>
     <footer id="footer">
@@ -44,6 +51,6 @@
     </footer>
     <script src="../scripts/dynamicHeader.js"></script>
     <script src="../scripts/scrollTrigger.js"></script>
-    <!-- <script src="../scripts/connectionAPI.js"></script> -->
+    <script src="../scripts/connectionAPI.js"></script>
 </body>
 </html>
