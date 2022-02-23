@@ -116,13 +116,13 @@ function resultsLang(language)
         li.appendChild(name)
         li.appendChild(flag)
         li.appendChild(details)
+
         details.appendChild(summary)
         details.appendChild(capital)
         details.appendChild(continents)
+
         elements['list'].appendChild(li)
     }
-
-    console.log(language)
 
     elements['sect'].classList.remove('hide')
 }
@@ -143,30 +143,28 @@ function resultsName(nation)
     box.setAttribute('class', 'results')
     box.style.backgroundImage = `url(${nation.flags.png})`
 
-    elements.flag.innerHTML = `<img src="${nation.flags.png}" alt="Bandeira da Nação">`
+    elements['flag'].innerHTML = `<img src="${nation.flags.png}" alt="Bandeira da Nação">`
 
-    elements.name.innerText = nation.translations.por.common
+    elements['name'].innerText = nation.translations.por.common
 
-    elements.capital.innerText = nation.capital.toString().replace(/,/g , ', ')
+    elements['capital'].innerText = nation.capital.toString().replace(/,/g , ', ')
 
-    elements.region.innerText = nation.continents
+    elements['region'].innerText = nation.continents
 
-    elements.currencies.innerText = `${Object.values(nation.currencies)[0].name} (${Object.values(nation.currencies)[0].symbol})` 
+    elements['currencies'].innerText = `${Object.values(nation.currencies)[0].name} (${Object.values(nation.currencies)[0].symbol})` 
     
-    elements.lang.innerText = Object.values(nation.languages).slice(0, 3).toString().replace(/,/g , ', ')
+    elements['lang'].innerText = Object.values(nation.languages).slice(0, 3).toString().replace(/,/g , ', ')
 
     if (nation.population < 1000000)
     {
-        elements.population.innerText = `${(nation.population / 1000).toFixed(1) } K`
+        elements['population'].innerText = `${(nation.population / 1000).toFixed(1) } K`
     }
     else if (nation.population < 1000000000)
     {
-        elements.population.innerText = `${(nation.population / 1000000).toFixed(1) } Mi`
+        elements['population'].innerText = `${(nation.population / 1000000).toFixed(1) } Mi`
     }
     else
     {
-        elements.population.innerText = `${(nation.population / 1000000000).toFixed(1) } Bi`
+        elements['population'].innerText = `${(nation.population / 1000000000).toFixed(1) } Bi`
     }
-
-    console.log(nation)
 }
