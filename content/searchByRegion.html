@@ -38,13 +38,26 @@
                 <button class="searchButton"><i class="fas fa-search"></i></button>
             </div>
         </section>
+        <section class="results hide">
+            <div class="text">
+                <h2 class="region"></h2>
+                <h2 class="number"></h2>
+            </div>
+            <div class="mapBox">
+                <img class="worldMap" src="../images/world.png" alt="Imagem da região selecionada">
+            </div>
+            <ul class="list"></ul>
+            <div class="text">
+                <h3 class="link">Clique na bandeira e veja o seu mapa!</h3>
+            </div>
+        </section>
     </main>
     <footer id="footer">
         <p class="madeByText">Made By <a class="madeByLink" href="https://github.com/ArthurVBS" target="_blank" rel="external">ArthurV.B.S.</a></p>
     </footer>
     <script src="../scripts/dynamicHeader.js"></script>
     <script src="../scripts/scrollTrigger.js"></script>
-    <!-- <script src="../scripts/connectionAPI.js"></script> -->
+    <script src="../scripts/connectionAPI.js"></script>
     <script src="../scripts/textWriter.js"></script>
 </body>
 </html>

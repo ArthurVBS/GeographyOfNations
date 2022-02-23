@@ -45,12 +45,90 @@ function displayResults(nation)
     }
     else if (search.type == 'region')
     {
-        console.log(nation)
+        resultsRegion(nation)
     }
     else
     {
         console.log('Erro!')
     }
+}
+
+function resultsRegion(region)
+{
+    const elements = {
+        region: document.querySelector('h2.region'),
+        number: document.querySelector('h2.number'),
+        list: document.querySelector('ul.list'),
+        map: document.querySelector('img.worldMap'),
+        sect: document.querySelector('section.results')
+    }
+
+    elements['list'].innerText = ''
+
+    elements['number'].innerText = region.length
+
+    let regionString = search['input'].value.toLowerCase()
+    displayMap(regionString, elements)
+
+    elements['region'].innerText = regionString
+
+    for (i = 0; i <= region.length - 1; i++)
+    {
+        let li = document.createElement('li')
+
+        li.classList.add('item')
+        
+        let name = document.createElement('h4')
+        
+        name.classList.add('name')
+        name.textContent = region[i].translations.por.common
+        
+        let flag = document.createElement('a')
+        
+        flag.classList.add('flag')
+        flag.style.backgroundImage = `url(${region[i].flags.png})`
+        flag.href = region[i].maps.googleMaps
+        flag.target = '_blank'
+        flag.rel = 'external'
+
+        let details = document.createElement('details')
+
+        details.classList.add('details')
+
+        let summary = document.createElement('summary')
+
+        summary.addEventListener('click', () => {
+            details.open ? summary.innerHTML = '<i class="fas fa-caret-right"></i>' : summary.innerHTML = '<i class="fas fa-caret-down"></i>'
+        });
+
+        summary.innerHTML = '<i class="fas fa-caret-right"></i>'
+        summary.classList.add('detailsTitle')
+
+        let capital = document.createElement('h4')
+
+        capital.classList.add('detailsItem')
+        
+        region[i].capital == undefined ? capital.innerHTML = '<i class="fas fa-city"></i> Sem capital' : capital.innerHTML = `<i class="fas fa-city"></i> ${region[i].capital.toString().replace(/,/g , ', ')}` 
+
+        console.log(region[i])
+
+        let language = document.createElement('h4')
+
+        language.classList.add('detailsItem')
+        language.innerHTML = `<i class="fas fa-language"></i> ${Object.values(region[i].languages).slice(0, 2).toString().replace(/,/g , ', ')}` 
+
+        li.appendChild(name)
+        li.appendChild(flag)
+        li.appendChild(details)
+
+        details.appendChild(summary)
+        details.appendChild(capital)
+        details.appendChild(language)
+
+        elements['list'].appendChild(li)
+    }
+
+    elements['sect'].classList.remove('hide')
 }
 
 function resultsLang(language)
@@ -104,7 +182,7 @@ function resultsLang(language)
 
         capital.classList.add('detailsItem')
         
-        language[i].capital == undefined ? capital.innerHTML = '<i class="fas fa-city"></i> Sem capital' : capital.innerHTML = `<i class="fas fa-city"></i> ${language[i].capital}` 
+        language[i].capital == undefined ? capital.innerHTML = '<i class="fas fa-city"></i> Sem capital' : capital.innerHTML = `<i class="fas fa-city"></i> ${language[i].capital.toString().replace(/,/g , ', ')}` 
 
         let continents = document.createElement('h4')
 
@@ -164,5 +242,37 @@ function resultsName(nation)
     else
     {
         elements['population'].innerText = `${(nation.population / 1000000000).toFixed(1) } Bi`
+    }
+}
+
+function displayMap(regionString, elements)
+{
+    if (regionString.includes('europe'))
+    {
+        elements['map'].src = '../images/europe.png'
+    }
+    else if (regionString.includes('north america'))
+    {
+        elements['map'].src = '../images/north_america.png'
+    }
+    else if (regionString.includes('south america'))
+    {
+        elements['map'].src = '../images/south_america.png'
+    }
+    else if (regionString.includes('america'))
+    {
+        elements['map'].src = '../images/america.png'
+    }
+    else if (regionString.includes('africa'))
+    {
+        elements['map'].src = '../images/africa.png'
+    }
+    else if (regionString.includes('asia'))
+    {
+        elements['map'].src = '../images/asia.png'
+    }
+    else if (regionString.includes('oceania'))
+    {
+        elements['map'].src = '../images/oceania.png'
     }
 }
