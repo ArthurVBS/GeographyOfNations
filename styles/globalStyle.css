@@ -320,3 +320,29 @@ main
 {
     transition-delay: 0.8s;
 }
+
+/* Animation Text Writer (all) */
+
+[data-textWriter]
+{
+    font-family: 'Courier New', Courier, monospace;
+}
+
+[data-textWriter]::after
+{
+    content: '|';
+    opacity: 1;
+    animation: blink 0.8s infinite;
+}
+
+@keyframes blink
+{
+    0%, 100%
+    {
+        opacity: 1;
+    }
+    50%
+    {
+        opacity: 0;
+    }
+}

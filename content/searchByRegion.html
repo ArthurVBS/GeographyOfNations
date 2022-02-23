@@ -25,14 +25,14 @@
     <main id="main">
         <section class="home">
             <div class="textBox inverted">
-                <h1 class="textTitle">Geografia das Nações</h1>
+                <h1 class="textTitle" data-textWriter="slow">Geografia das Nações</h1>
                 <p class="textParagraph">Busque pela <span class="textDetail">região</span> da nação e veja a sua descrição!</p>
             </div>
             <div class="undrawBox">
                 <img class="undrawImage" src="../images/undraw-earth.png" alt="Arte Mapa Mundi no Notebook">
             </div>
         </section>
-        <section class="search">
+        <section class="search" id="region">
             <div class="searchContainer" data-animation="left">
                 <input class="searchInput" type="text" placeholder="Insira aqui a região da Nação">
                 <button class="searchButton"><i class="fas fa-search"></i></button>
@@ -45,5 +45,6 @@
     <script src="../scripts/dynamicHeader.js"></script>
     <script src="../scripts/scrollTrigger.js"></script>
     <!-- <script src="../scripts/connectionAPI.js"></script> -->
+    <script src="../scripts/textWriter.js"></script>
 </body>
 </html>

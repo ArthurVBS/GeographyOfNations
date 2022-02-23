@@ -70,8 +70,6 @@ function resultsLang(language)
 
     for (i = 0; i <= language.length - 1; i++)
     {
-        console.log(language[i])
-
         let li = document.createElement('li')
 
         li.classList.add('item')
