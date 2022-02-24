@@ -49,86 +49,50 @@ function displayResults(nation)
     }
     else
     {
-        console.log('Erro!')
+        console.log('Error!')
     }
 }
 
-function resultsRegion(region)
+function resultsName(nation)
 {
     const elements = {
-        region: document.querySelector('h2.region'),
-        number: document.querySelector('h2.number'),
-        list: document.querySelector('ul.list'),
-        map: document.querySelector('img.worldMap'),
-        sect: document.querySelector('section.results')
+        flag: document.getElementById('nationFlag'),
+        name: document.getElementById('nationName'),
+        lang: document.getElementById('nationLang'),
+        region: document.getElementById('nationRegion'),
+        capital: document.getElementById('nationCapital'),
+        population: document.getElementById('nationPopulation'),
+        currencies: document.getElementById('nationCurrencies')
     }
 
-    elements['list'].innerText = ''
+    box = document.querySelector('.results')
+    box.setAttribute('class', 'results')
+    box.style.backgroundImage = `url(${nation.flags.png})`
 
-    elements['number'].innerText = region.length
+    elements['flag'].innerHTML = `<img src="${nation.flags.png}" alt="Nation flag">`
 
-    let regionString = search['input'].value.toLowerCase()
-    displayMap(regionString, elements)
+    elements['name'].innerText = nation.name.common
 
-    elements['region'].innerText = regionString
+    elements['capital'].innerText = nation.capital.toString().replace(/,/g , ', ')
 
-    for (i = 0; i <= region.length - 1; i++)
+    elements['region'].innerText = nation.continents
+
+    elements['currencies'].innerText = `${Object.values(nation.currencies)[0].name} (${Object.values(nation.currencies)[0].symbol})` 
+    
+    elements['lang'].innerText = Object.values(nation.languages).slice(0, 3).toString().replace(/,/g , ', ')
+
+    if (nation.population < 1000000)
     {
-        let li = document.createElement('li')
-
-        li.classList.add('item')
-        
-        let name = document.createElement('h4')
-        
-        name.classList.add('name')
-        name.textContent = region[i].translations.por.common
-        
-        let flag = document.createElement('a')
-        
-        flag.classList.add('flag')
-        flag.style.backgroundImage = `url(${region[i].flags.png})`
-        flag.href = region[i].maps.googleMaps
-        flag.target = '_blank'
-        flag.rel = 'external'
-
-        let details = document.createElement('details')
-
-        details.classList.add('details')
-
-        let summary = document.createElement('summary')
-
-        summary.addEventListener('click', () => {
-            details.open ? summary.innerHTML = '<i class="fas fa-caret-right"></i>' : summary.innerHTML = '<i class="fas fa-caret-down"></i>'
-        });
-
-        summary.innerHTML = '<i class="fas fa-caret-right"></i>'
-        summary.classList.add('detailsTitle')
-
-        let capital = document.createElement('h4')
-
-        capital.classList.add('detailsItem')
-        
-        region[i].capital == undefined ? capital.innerHTML = '<i class="fas fa-city"></i> Sem capital' : capital.innerHTML = `<i class="fas fa-city"></i> ${region[i].capital.toString().replace(/,/g , ', ')}` 
-
-        console.log(region[i])
-
-        let language = document.createElement('h4')
-
-        language.classList.add('detailsItem')
-        language.innerHTML = `<i class="fas fa-language"></i> ${Object.values(region[i].languages).slice(0, 2).toString().replace(/,/g , ', ')}` 
-
-        li.appendChild(name)
-        li.appendChild(flag)
-        li.appendChild(details)
-
-        details.appendChild(summary)
-        details.appendChild(capital)
-        details.appendChild(language)
-
-        elements['list'].appendChild(li)
+        elements['population'].innerText = `${(nation.population / 1000).toFixed(1) } K`
     }
-
-    elements['sect'].classList.remove('hide')
+    else if (nation.population < 1000000000)
+    {
+        elements['population'].innerText = `${(nation.population / 1000000).toFixed(1) } Mi`
+    }
+    else
+    {
+        elements['population'].innerText = `${(nation.population / 1000000000).toFixed(1) } Bi`
+    }
 }
 
 function resultsLang(language)
@@ -155,7 +119,7 @@ function resultsLang(language)
         let name = document.createElement('h4')
         
         name.classList.add('name')
-        name.textContent = language[i].translations.por.common
+        name.textContent = language[i].name.common
         
         let flag = document.createElement('a')
         
@@ -203,47 +167,82 @@ function resultsLang(language)
     elements['sect'].classList.remove('hide')
 }
 
-function resultsName(nation)
+function resultsRegion(region)
 {
     const elements = {
-        flag: document.getElementById('nationFlag'),
-        name: document.getElementById('nationName'),
-        lang: document.getElementById('nationLang'),
-        region: document.getElementById('nationRegion'),
-        capital: document.getElementById('nationCapital'),
-        population: document.getElementById('nationPopulation'),
-        currencies: document.getElementById('nationCurrencies')
+        region: document.querySelector('h2.region'),
+        number: document.querySelector('h2.number'),
+        list: document.querySelector('ul.list'),
+        map: document.querySelector('img.worldMap'),
+        sect: document.querySelector('section.results')
     }
 
-    box = document.querySelector('.results')
-    box.setAttribute('class', 'results')
-    box.style.backgroundImage = `url(${nation.flags.png})`
+    elements['list'].innerText = ''
 
-    elements['flag'].innerHTML = `<img src="${nation.flags.png}" alt="Bandeira da Nação">`
+    elements['number'].innerText = region.length
 
-    elements['name'].innerText = nation.translations.por.common
+    let regionString = search['input'].value.toLowerCase()
+    displayMap(regionString, elements)
 
-    elements['capital'].innerText = nation.capital.toString().replace(/,/g , ', ')
+    elements['region'].innerText = regionString
 
-    elements['region'].innerText = nation.continents
-
-    elements['currencies'].innerText = `${Object.values(nation.currencies)[0].name} (${Object.values(nation.currencies)[0].symbol})` 
-    
-    elements['lang'].innerText = Object.values(nation.languages).slice(0, 3).toString().replace(/,/g , ', ')
-
-    if (nation.population < 1000000)
+    for (i = 0; i <= region.length - 1; i++)
     {
-        elements['population'].innerText = `${(nation.population / 1000).toFixed(1) } K`
+        let li = document.createElement('li')
+
+        li.classList.add('item')
+        
+        let name = document.createElement('h4')
+        
+        name.classList.add('name')
+        name.textContent = region[i].name.common
+        
+        let flag = document.createElement('a')
+        
+        flag.classList.add('flag')
+        flag.style.backgroundImage = `url(${region[i].flags.png})`
+        flag.href = region[i].maps.googleMaps
+        flag.target = '_blank'
+        flag.rel = 'external'
+
+        let details = document.createElement('details')
+
+        details.classList.add('details')
+
+        let summary = document.createElement('summary')
+
+        summary.addEventListener('click', () => {
+            details.open ? summary.innerHTML = '<i class="fas fa-caret-right"></i>' : summary.innerHTML = '<i class="fas fa-caret-down"></i>'
+        });
+
+        summary.innerHTML = '<i class="fas fa-caret-right"></i>'
+        summary.classList.add('detailsTitle')
+
+        let capital = document.createElement('h4')
+
+        capital.classList.add('detailsItem')
+        
+        region[i].capital == undefined ? capital.innerHTML = '<i class="fas fa-city"></i> Sem capital' : capital.innerHTML = `<i class="fas fa-city"></i> ${region[i].capital.toString().replace(/,/g , ', ')}` 
+
+        let language = document.createElement('h4')
+
+        language.classList.add('detailsItem')
+        language.innerHTML = `<i class="fas fa-language"></i> ${Object.values(region[i].languages).slice(0, 2).toString().replace(/,/g , ', ')}` 
+
+        li.appendChild(name)
+        li.appendChild(flag)
+        li.appendChild(details)
+
+        details.appendChild(summary)
+        details.appendChild(capital)
+        details.appendChild(language)
+
+        elements['list'].appendChild(li)
     }
-    else if (nation.population < 1000000000)
-    {
-        elements['population'].innerText = `${(nation.population / 1000000).toFixed(1) } Mi`
-    }
-    else
-    {
-        elements['population'].innerText = `${(nation.population / 1000000000).toFixed(1) } Bi`
-    }
+
+    elements['sect'].classList.remove('hide')
 }
+
 
 function displayMap(regionString, elements)
 {
@@ -274,5 +273,9 @@ function displayMap(regionString, elements)
     else if (regionString.includes('oceania'))
     {
         elements['map'].src = '../images/oceania.png'
+    }
+    else
+    {
+        elements['map'].src = '../images/world.png'
     }
 }
