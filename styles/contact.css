@@ -31,73 +31,156 @@
 
 /* Contact Section */
 
-main .contact
+.contact
 {
     background-color: var(--blue);
     display: grid;
     grid-template-columns: 1fr;
     justify-content: center;
-    align-items: center;
     gap: 32px;
     padding: 16px;
 }
 
-main .contact img
+.contact img
 {
     max-width: 250px;
     width: 100%;
     margin: 0 auto;
     box-shadow: 4px 4px 10px #00000090;
-    border: white 8px solid;
+    border: white 4px solid;
     border-radius: 20%;
 }
 
-main .contact .text
+.contact .container
 {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: stretch;
+    gap: 32px;
+    padding: 16px;
 }
 
-main .contact .text h1
+.contact .container .text
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+}
+
+.contact .container .text h1
 {
     color: white;
     text-align: center;
     letter-spacing: 1px;
     font-size: 1.7em;
-    padding: 8px;
 }
 
-main .contact .text i
+.contact .container .text i
 {
     font-size: 0.8em;
 }
 
-main .contact .text h4
+.contact .container .text h4
 {
     color: white;
     text-align: center;
     font-size: 1.2em;
     font-weight: 400;
-    padding: 8px;
 }
+
+.contact .container .icons
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+}
+
+.contact .container .icons .box
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 15px;
+    background-color: var(--blue);
+    width: 50px;
+    height: 50px;
+    transition: all 0.5s;
+}
+
+.contact .container .icons .box:hover
+{
+    transform: translateY(-10px);
+    background: white;
+    box-shadow:  2px 2px 3px #ededed,
+                -2px -2px 3px #ededed;
+}
+
+.contact .container .icons .box .link
+{
+    color: white;
+    font-size: 2em;
+}
+
+.contact .container .icons .box:hover .link
+{
+    color: var(--blue);
+}
+
+/* Repository Section */
+
+.repository
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: #00000020 2px solid;
+    border-bottom: #00000020 2px solid;
+    padding: 16px;
+}
+
+.repository .text
+{
+    text-align: center;
+    font-size: 1.3em;
+    color: var(--blue);
+}
+
+.repository .text .link, .repository .text .icon i
+{
+    color: var(--violet);
+    transition: all 0.5s;
+}
+
+.repository .text .link:hover
+{
+    letter-spacing: 2px;
+}
+
+.repository .text .icon i:hover
+{
+    transform: rotateZ(360deg)
+}
+
+/* Media Queries */
 
 @media screen and (min-width: 768px)
 {
-    main .home, main .contact
+    .contact
     {
         grid-template-columns: repeat(2, 1fr);
     }
-    main .home .container h1
-    {
-        font-size: 3em;
-    }
-    main .contact .text h1, main .contact .text h4
+    .contact .container .text h1, .contact .container .text h4
     {
         text-align: start;
     }
-    main .contact img
+    .contact .container .icons
+    {
+        justify-content: flex-start;
+    }
+    .contact img
     {
         max-width: 280px;
     }
