@@ -273,6 +273,63 @@ main
     color: var(--green);
 }
 
+/* Error Div (3/5) */
+
+.error
+{
+    background-color: transparent;
+    visibility: hidden;
+    position: fixed;
+    bottom: 50px;
+    left: 0;
+    width: calc(100% - 32px);
+    padding: 16px;
+    margin: 16px;
+}
+
+.error.show
+{
+    visibility: visible;
+    animation: fadeIn 0.5s, fadeOut 0.5s 2.5s;
+}
+
+.error .message
+{
+    background-color: white;
+    color: var(--violet);
+    text-align: center;
+    line-height: 2.3em;
+    max-width: 500px;
+    border-radius: 15px;
+    border: 4px solid #00000020;
+    box-shadow: 2px 4px 2px #00000020;
+    margin: 0 auto;
+    padding: 8px;
+}
+
+@keyframes fadeIn {
+    from {
+        bottom: 0;
+        opacity: 0
+    }
+    to
+    {
+        bottom: 50px;
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        bottom: 50px;
+        opacity: 1;
+    }
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
+}
+
 /* Animation Scroll Trigger (all) */
 
 [data-animation]
@@ -338,12 +395,10 @@ main
 
 @keyframes blink
 {
-    0%, 100%
-    {
+    0%, 100% {
         opacity: 1;
     }
-    50%
-    {
+    50% {
         opacity: 0;
     }
 }

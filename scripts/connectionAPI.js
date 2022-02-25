@@ -2,54 +2,67 @@ const search = {
     input: document.querySelector('.searchInput'),
     button: document.querySelector('.searchButton'),
     type: document.querySelector('.search').getAttribute('id')
-}
+};
 
-search.button.addEventListener('click', () => {
-    searchResults(search.type, search.input.value)
-})
+search['button'].addEventListener('click', () => {
+    search['input'].value !== '' ? searchResults(search['type'], search['input'].value) : displayError();
+});
 
-search.input.addEventListener('keypress', (event) => {
-    key = event.keyCode
+search['input'].addEventListener('keypress', (event) => {
+    key = event.keyCode;
     if (key === 13) {
-        searchResults(search.type, search.input.value)
-    }
-})
+        search['input'].value !== '' ? searchResults(search['type'], search['input'].value) : displayError();
+    };
+});
+
+function displayError()
+{
+    let errorDiv = document.querySelector('.error');
+    errorDiv.classList.add('show');
+    setTimeout(() => {
+        errorDiv.classList.remove('show')
+    }, 3000);
+};
 
 function searchResults(type, name)
 {
+    let resultsSection = document.querySelector('.results')
+
     fetch(`https://restcountries.com/v3.1/${type}/${name}`)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`http error: status ${response.status}`)
+        .then(response => response.json())
+        .then(result => {
+            if (result.status == 404) {
+                resultsSection.classList.add('hide')
+
+                displayError()
             }
-            return response.json()
+            else {
+                resultsSection.classList.remove('hide')
+
+                displayResults(result)
+            }
         })
         .catch(error => {
-            alert(error.message)
-        })
-        .then(response => {
-            displayResults(response)
+            console.error('Failed retrieving information', error);
+            resultsSection.classList.add('hide')
+
+            displayError()
         })
 }
 
 function displayResults(nation)
 {
-    if (search.type == 'name')
-    {
+    if (search['type'] == 'name') {
         resultsName(nation[0])
-        
     }
-    else if (search.type == 'lang')
-    {
+    else if (search['type'] == 'lang') {
         resultsLang(nation)
     }
-    else if (search.type == 'region')
-    {
+    else if (search['type'] == 'region') {
         resultsRegion(nation)
     }
-    else
-    {
-        console.log('Error!')
+    else {
+        console.error('Error!')
     }
 }
 
