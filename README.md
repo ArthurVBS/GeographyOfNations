@@ -17,7 +17,7 @@
 
 ## 💻 Situação do projeto:
 
-- Projeto em andamento... 🚧🧭
+- Projeto finalizado ✔️
 
 ## 🛠 Tecnologias:
 
@@ -27,11 +27,10 @@
 
 ## 📝 Features:
 
-- [x] Ser responsivo (CSS)
-- [x] Usar tags semânticas (HTML)
-- [x] Consumir uma API (JS)
-- [x] Utilizar ScrollTrigger (JS)
-- [x] Ter um Header Dinâmico (JS)
+- [x] Consumir uma API (Rest Countries)
+- [x] ScrollTrigger
+- [x] Header Dinâmico
+- [x] Efeito de digitação
 
 ## ⚙️ Pré-requisitos:
 
