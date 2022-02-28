@@ -1,7 +1,5 @@
-<h1 align="center">Geografia das Nações</h1>
-<p align="center">Um site que busca por e mostra as informações sobre uma nação... 🌎💻⛰️</p>
+<h1 align="center">Geography of Nations</h1>
 
-<br>
 <div align="center">
   <img src="https://img.shields.io/badge/License-GNU%20GPLv3-000?style=social&logo=json&logoColor=469BD2">
   &nbsp;
@@ -13,13 +11,21 @@
   &nbsp;
   <img src="https://img.shields.io/badge/JavaScript-000?style=social&logo=javascript&logoColor=469BD2">
 </div>
-<br>
 
-## 💻 Situação do projeto:
+## 🗣️ ReadMe:
 
-- Projeto finalizado ✔️
+- English
+- [Portuguese](https://github.com/ArthurVBS/GeographyOfNations/blob/main/README-pt.md)
 
-## 🛠 Tecnologias:
+## ✨ About the project:
+
+- A website that searches for and displays information about a nation... 🌎💻⛰️
+
+## 💻 Project status:
+
+- Finished project ✔️
+
+## 🛠 Technologies:
 
 - HTML
 - CSS
@@ -27,25 +33,25 @@
 
 ## 📝 Features:
 
-- [x] Consumir uma API (Rest Countries)
+- [x] Consume an API (Rest Countries)
 - [x] ScrollTrigger
-- [x] Header Dinâmico
-- [x] Efeito de digitação
+- [x] Dynamic Header
+- [x] Typing Effect
 
-## ⚙️ Pré-requisitos:
+## ⚙️ Prerequisites:
 
-- Acesso à internet - Navegador
+- Internet access - Browser
 
-## 🚀 Como rodar a aplicação?
+## 🚀 How to run the application?
 
-- Acesse o [site da aplicação](https://arthurvbs.github.io/GeographyOfNations/)
+- Go to the [application website](https://arthurvbs.github.io/GeographyOfNations/)
 
-## 📝 Licença
+## 📝 License
 
-- Este projeto está sobe a licença [GNU GPLv3](https://github.com/ArthurVBS/GeographyOfNations/blob/main/LICENSE)
+- This project is licensed under the [GNU GPLv3](https://github.com/ArthurVBS/GeographyOfNations/blob/main/LICENSE)
 
-<h2 align="center">👨🏽‍💻 Autor</h2>
+<h2 align="center">👨🏽‍💻 Author</h2>
 <div align="center">
   <img width="100px;" src="https://avatars.githubusercontent.com/u/84406367?v=4" alt="Foto do autor"/>
-  <br><span>Feito por <a href="https://github.com/ArthurVBS" target="_blank" rel="external">Arthur V.B.S</a>✌🏽</span>
+  <br><span>Made by <a href="https://github.com/ArthurVBS" target="_blank" rel="external">Arthur V.B.S</a>✌🏽</span>
 </div>
