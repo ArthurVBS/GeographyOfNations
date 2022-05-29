@@ -10,4 +10,8 @@ export default createGlobalStyle<{ theme: ThemeType }>`
     box-sizing: border-box;
     font-family: 'Quicksand', sans-serif;
   }
+
+  body{
+    background-color: ${props => props.theme.main.primary};
+  }
 `

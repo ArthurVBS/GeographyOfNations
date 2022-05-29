@@ -1,14 +1,14 @@
 export const theme = {
   color: {
-    primary: '#0080FF',
-    secondary: '#0ED095',
-    tertiary: '#A362EA'
+    primary: '#556B2E',
+    secondary: '#0E90AD'
   },
   main: {
-    primary: '#FFF'
+    primary: '#FAFAED',
+    secondary: '#FFF'
   },
   contrast: {
-    primary: '#000'
+    primary: '#232323',
+    secondary : '#000'
   }
-
 }

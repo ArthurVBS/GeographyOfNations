@@ -4,14 +4,14 @@ import Header from '../../components/header'
 
 // import { Container } from './styles'
 
-const Home: React.FC = () => {
+const Search: React.FC = () => {
   return(
     <>
-      <Header selected='home' />
-      <h1>Home</h1>
+      <Header selected={'search'} />
+      <h1>Search</h1>
       <Footer />
     </>
   )
 }
 
-export default Home
+export default Search
