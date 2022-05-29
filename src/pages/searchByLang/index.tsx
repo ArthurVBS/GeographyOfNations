@@ -4,14 +4,14 @@ import Header from '../../components/header'
 
 // import { Container } from './styles'
 
-const SearchByName: React.FC = () => {
-  return(
+const SearchByLang: React.FC = () => {
+  return (
     <>
-      <Header selected='search' />
-      <h1>Search By Name</h1>
+      <Header selected={'search'} />
+      <h1>Search By Lang</h1>
       <Footer />
     </>
   )
 }
 
-export default SearchByName
+export default SearchByLang
