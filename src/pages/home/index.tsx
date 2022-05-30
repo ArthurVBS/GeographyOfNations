@@ -1,18 +1,36 @@
-import React from 'react'
-import { Container, Image } from './styles'
+import React, { useEffect } from 'react'
+import Aos from 'aos'
+import { Button, Container, Content, HomeSection, Image, Text, Title } from './styles'
 
 import Footer from '../../components/footer'
 import Header from '../../components/header'
 
 import undrawAroundTheWorld from '../../assets/undraw_around_the_world.svg'
+import { Link } from 'react-router-dom'
 
 const Home: React.FC = () => {
-  return(
+  useEffect(() => {
+    Aos.init({ duration: 1000, once: false })
+  })
+
+  return (
     <>
       <Header selected='home' />
+      <HomeSection>
+        <Content data-aos='fade-right'>
+          <Title>Welcome to the + Nations Project</Title>
+          <Button>
+            <Link to='/search'>
+              Search
+              <i className="fas fa-arrow-right"></i>
+            </Link>
+          </Button>
+        </Content>
+      </HomeSection>
+
       <Container>
-        <h1>Home</h1>
-        <Image src={undrawAroundTheWorld} alt="A girl seeing the world" />
+        <Image data-aos='fade-right' src={undrawAroundTheWorld} alt="A girl seeing the world" />
+        <Text data-aos='fade-left'>Search by nations and see their information! <i className="fas fa-globe-americas"></i></Text>
       </Container>
       <Footer />
     </>
