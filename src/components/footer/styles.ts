@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Container = styled.footer`
-  background-color: ${props => props.theme.main.primary};
+  background-color: ${props => props.theme.colors.background};
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -11,7 +11,7 @@ export const Container = styled.footer`
 `
 
 export const Text = styled.p`
-  color: ${props => props.theme.contrast.primary};
+  color: ${props => props.theme.colors.text};
   font-weight: 700;
   text-align: center;
   opacity: .7;
@@ -22,7 +22,7 @@ export const Text = styled.p`
   }
 
   a{
-    color: ${props => props.theme.color.primary};
+    color: ${props => props.theme.colors.primary};
     text-decoration: none;
     transition: all .4s;
 
@@ -41,7 +41,7 @@ export const LinkWrapper = styled.div`
 `
 
 export const Link = styled.a`
-  color: ${props => props.theme.color.primary};
+  color: ${props => props.theme.colors.primary};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -57,8 +57,8 @@ export const Link = styled.a`
 `
 
 export const Button = styled.button`
-  background-color: ${props => props.theme.color.primary};
-  color: ${props => props.theme.main.primary};
+  background-color: ${props => props.theme.colors.primary};
+  color: ${props => props.theme.colors.background};
   font-size: 1.1em;
   border-radius: 8px;
   width: 28px;

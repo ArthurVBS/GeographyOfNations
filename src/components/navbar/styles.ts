@@ -9,7 +9,7 @@ interface ContainerProps {
 }
 
 export const Container = styled.nav<ContainerProps>`
-  background-color: ${props => props.theme.main.primary};
+  background-color: ${props => props.theme.colors.background};
   z-index: 10;
   position: fixed;
   top: 0;
@@ -43,7 +43,7 @@ export const IconLink = styled.div<IconBoxProps>`
   transition: all .3s;
 
   a{
-    color: ${props => props.selected ? props.theme.color.primary : props.theme.contrast.primary};
+    color: ${props => props.selected ? props.theme.colors.primary : props.theme.colors.text};
     text-decoration: 2px underline transparent;
     letter-spacing: 1px;
     font-size: 1.8em;
@@ -51,7 +51,7 @@ export const IconLink = styled.div<IconBoxProps>`
     transition: all .3s ease-in-out;
 
     &:hover{
-      text-decoration: 2px underline ${props => props.selected ? props.theme.color.primary : props.theme.contrast.primary};
+      text-decoration: 2px underline ${props => props.selected ? props.theme.colors.primary : props.theme.colors.text};
     }
 
     @media screen and (min-width: 528px) {

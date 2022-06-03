@@ -1,9 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
-import { theme } from './theme'
 
-type ThemeType = typeof theme
-
-export default createGlobalStyle<{ theme: ThemeType }>`
+export default createGlobalStyle`
   * {
     margin: 0;
     padding: 0;
@@ -12,19 +9,19 @@ export default createGlobalStyle<{ theme: ThemeType }>`
     text-decoration: none;
     box-sizing: border-box;
     scrollbar-width: auto;
-    scrollbar-color: ${props => (props.theme.color.primary)} ${props => props.theme.main.secondary};
+    scrollbar-color: ${props => (props.theme.colors.background)} ${props => props.theme.colors.background};
   }
 
   *::-webkit-scrollbar {
     width: 16px;
   }
   *::-webkit-scrollbar-track, ::-webkit-scrollbar-corner {
-    background: ${props => props.theme.main.primary};
+    background: ${props => props.theme.colors.background};
   }
   *::-webkit-scrollbar-thumb {
-    background-color: ${props => props.theme.color.primary};
+    background-color: ${props => props.theme.colors.primary};
     border-radius: 8px;
-    border: 4px solid ${props => props.theme.main.primary};
+    border: 4px solid ${props => props.theme.colors.background};
   }
   *::-webkit-scrollbar-thumb:hover {
     background-color: #707070;
@@ -38,7 +35,7 @@ export default createGlobalStyle<{ theme: ThemeType }>`
   }
 
   body{
-    background-color: ${props => props.theme.main.primary};
+    background-color: ${props => props.theme.colors.background};
     font-family: 'Quicksand', sans-serif;
   }
 `

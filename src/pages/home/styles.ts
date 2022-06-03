@@ -33,7 +33,7 @@ export const Content = styled.div`
 `
 
 export const Title = styled.h2`
-  color: ${props => props.theme.main.primary};
+  color: #FAFAED;
   font-size: 1.8em;
   letter-spacing: 1px;
   text-align: center;
@@ -45,12 +45,12 @@ export const Title = styled.h2`
 `
 
 export const Button = styled.button`
-  background-color: ${props => props.theme.main.primary};
+  background-color: ${props => props.theme.colors.background};
   border: none;
   border-radius: 8px;
 
   a{
-    color: ${props => props.theme.contrast.primary};
+    color: ${props => props.theme.colors.text};
     display: flex;
     justify-content: center;
     align-items: center;
@@ -60,7 +60,7 @@ export const Button = styled.button`
     transition: all .3s;
 
     &:hover > i{
-      color: ${props => props.theme.color.primary};
+      color: ${props => props.theme.colors.primary};
     }
 
     i{
@@ -97,6 +97,7 @@ export const Image = styled.img`
   `
 
 export const Text = styled.p`
+  color: ${props => props.theme.colors.text};
   text-align: center;
   font-size: 1.4em;
   width: 100%;

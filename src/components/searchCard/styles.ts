@@ -16,12 +16,12 @@ export const Container = styled.div`
   transition: all .4s;
 
   &:hover{
-    border: 2px solid ${props => props.theme.contrast.primary};
-    outline: 2px solid ${props => props.theme.contrast.primary};
+    border: 2px solid ${props => props.theme.colors.text};
+    outline: 2px solid ${props => props.theme.colors.text};
   }
 
   a{
-    color: ${props => props.theme.contrast.primary}
+    color: ${props => props.theme.colors.text}
   }
 `
 
