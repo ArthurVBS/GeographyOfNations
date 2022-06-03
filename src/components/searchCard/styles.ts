@@ -12,6 +12,7 @@ export const Container = styled.div`
   outline: 2px solid transparent;
   border-radius: 8px;
   border: 2px solid transparent;
+  z-index: 1;
   transition: all .4s;
 
   &:hover{

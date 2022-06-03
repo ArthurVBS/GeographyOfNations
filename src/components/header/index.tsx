@@ -1,21 +1,24 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react'
+import Navbar from '../navbar'
 
-import { Container, Nav, IconLink, Logo } from './styles'
+import { Container, Logo, ToggleSidebar } from './styles'
 
 type Props = {
   selected: String
 }
 
-const Header: React.FC<Props> = ({selected}) => {
+const Header: React.FC<Props> = ({ selected }) => {
+  const [sidebar, setSidebar] = useState<boolean>(false)
+
+  const toggleSidebar = () => {
+    setSidebar(!sidebar)
+  }
+
   return (
     <Container>
       <Logo>+ Nations</Logo>
-      <Nav>
-        <IconLink selected={selected === 'home'}><Link to='/'>Home</Link></IconLink>
-        <IconLink selected={selected === 'search'}><Link to='/search'>Search</Link></IconLink>
-        <IconLink selected={selected === 'contact'}><Link to='/contact'>Contact</Link></IconLink>
-      </Nav>
+      <Navbar selected={selected} sidebar={{ isOpen: sidebar, setIsOpen: setSidebar }} />
+      <ToggleSidebar onClick={() => toggleSidebar()}><i className="fas fa-bars"></i></ToggleSidebar>
     </Container>
   )
 }

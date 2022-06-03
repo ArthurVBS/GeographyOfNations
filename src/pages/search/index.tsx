@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react'
-import Aos from 'aos'
+import React from 'react'
 
 import Footer from '../../components/footer'
 import Header from '../../components/header'
@@ -12,15 +11,11 @@ import undrawBestPlace from '../../assets/undraw_best_place.svg'
 import undrawThingsToSay from '../../assets/undraw_things_to_say.svg'
 
 const Search: React.FC = () => {
-  useEffect(() => {
-    Aos.init({ duration: 1000, once: false })
-  })
-
   return (
     <>
       <Header selected={'search'} />
 
-      <SearchContainer data-aos='fade-up'>
+      <SearchContainer>
         <SearchCard title='Search by Name' path='/search/name'
           image={{ url: undrawBestPlace, alt: 'A locator in a city' }}></SearchCard>
 

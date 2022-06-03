@@ -5,7 +5,7 @@ import Header from '../../components/header'
 // import { Container } from './styles'
 
 const Contact: React.FC = () => {
-  return(
+  return (
     <>
       <Header selected='contact' />
       <h1>Contact</h1>
