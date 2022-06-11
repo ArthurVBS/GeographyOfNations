@@ -1,6 +1,7 @@
-import { createContext, ReactNode, useContext, useState } from 'react'
+import { createContext, ReactNode, useContext } from 'react'
 import { DefaultTheme, ThemeProvider } from 'styled-components'
 import light from '../styles/theme/light'
+import usePersistedState from '../utils/usePersistedState'
 
 type themeContextType = {
   theme: DefaultTheme,
@@ -21,10 +22,10 @@ const ThemeContext = createContext<themeContextType>(initialValue)
 export const useTheme = () => useContext(ThemeContext)
 
 export const ThemeContextProvider = ({ children }: themeContextProps) => {
-  const [theme, setTheme] = useState(initialValue.theme)
+  const [theme, setTheme] = usePersistedState('theme', initialValue.theme)
 
   return (
-    <ThemeContext.Provider value={{theme, setTheme}}>
+    <ThemeContext.Provider value={{ theme, setTheme }}>
       <ThemeProvider theme={theme}>
         {children}
       </ThemeProvider>

@@ -1,4 +1,5 @@
-import { createContext, ReactNode, useContext, useState } from 'react'
+import { createContext, ReactNode, useContext } from 'react'
+import usePersistedState from '../utils/usePersistedState'
 
 type navbarContextType = {
   selected: string,
@@ -13,21 +14,21 @@ type navbarContextProps = {
 
 const initialValue = {
   selected: 'home',
-  setSelected: () => {},
+  setSelected: () => { },
   isOpen: false,
-  setIsOpen: () => {}
+  setIsOpen: () => { }
 }
 
 const NavbarContext = createContext<navbarContextType>(initialValue)
 
 export const useNavbar = () => useContext(NavbarContext)
 
-export const NavbarContextProvider = ({children} : navbarContextProps) => {
-  const [selected, setSelected] = useState(initialValue.selected)
-  const [isOpen, setIsOpen] = useState(initialValue.isOpen)
+export const NavbarContextProvider = ({ children }: navbarContextProps) => {
+  const [selected, setSelected] = usePersistedState('selected', initialValue.selected)
+  const [isOpen, setIsOpen] = usePersistedState('isOpen', initialValue.isOpen)
 
   return (
-    <NavbarContext.Provider value={{selected, setSelected, isOpen, setIsOpen}}>
+    <NavbarContext.Provider value={{ selected, setSelected, isOpen, setIsOpen }}>
       {children}
     </NavbarContext.Provider>
   )
