@@ -4,7 +4,7 @@ import { useNavbar } from '../../contexts/NavbarContext'
 import { Container, IconLink } from './styles'
 
 const Navbar: React.FC = () => {
-  const { selected, setSelected, isOpen, setIsOpen } = useNavbar()
+  const { selected, isOpen, setIsOpen } = useNavbar()
 
   const closeSidebar = () => {
     setIsOpen(false)
@@ -13,15 +13,15 @@ const Navbar: React.FC = () => {
 
   return (
     <Container isOpen={isOpen} onClick={() => closeSidebar()}>
-      <IconLink selected={selected === 'home'} onClick={() => setSelected('home')}>
+      <IconLink selected={selected === 'home'}>
         <Link to='/'>Home</Link>
       </IconLink>
 
-      <IconLink selected={selected === 'search'} onClick={() => setSelected('search')}>
+      <IconLink selected={selected === 'search'}>
         <Link to='/search'>Search</Link>
       </IconLink>
 
-      <IconLink selected={selected === 'contact'} onClick={() => setSelected('contact')}>
+      <IconLink selected={selected === 'contact'}>
         <Link to='/contact'>Contact</Link>
       </IconLink>
     </Container>

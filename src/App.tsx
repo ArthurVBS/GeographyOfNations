@@ -16,10 +16,10 @@ const App: React.FC = () => {
       <ThemeContextProvider>
         <GlobalStyles />
         <NavbarContextProvider>
-          <Header/>
+          <Header />
+          <Routes />
+          <Footer />
         </NavbarContextProvider>
-        <Routes />
-        <Footer />
       </ThemeContextProvider>
     </BrowserRouter>
   )

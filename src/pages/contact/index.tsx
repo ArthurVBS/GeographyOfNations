@@ -1,12 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useNavbar } from '../../contexts/NavbarContext'
 
 // import { Container } from './styles'
 
 const Contact: React.FC = () => {
-  const {setSelected} = useNavbar()
+  const { setSelected } = useNavbar()
 
-  setSelected('contact')
+  useEffect(() => {
+    setSelected('contact')
+  }, [])
 
   return (
     <>

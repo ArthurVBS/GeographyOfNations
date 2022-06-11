@@ -36,6 +36,7 @@ export default createGlobalStyle`
 
   body{
     background-color: ${props => props.theme.colors.background};
+    color: ${props => props.theme.colors.text};
     font-family: 'Quicksand', sans-serif;
   }
 `

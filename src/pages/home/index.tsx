@@ -4,8 +4,15 @@ import { Button, Container, Content, HomeSection, Image, Text, Title } from './s
 
 import undrawAroundTheWorld from '../../assets/undraw_around_the_world.svg'
 import { Link } from 'react-router-dom'
+import { useNavbar } from '../../contexts/NavbarContext'
 
 const Home: React.FC = () => {
+  const { setSelected } = useNavbar()
+
+  useEffect(() => {
+    setSelected('home')
+  }, [])
+
   useEffect(() => {
     Aos.init({ duration: 1000, once: false })
   })

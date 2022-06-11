@@ -16,8 +16,8 @@ const SearchCard: React.FC<Props> = ({ image, title, path }) => {
   })
 
   return (
-    <Container data-aos='fade-up'>
-      <Link to={path}>
+    <Container >
+      <Link to={path} data-aos='fade-up'>
         <Title>{title}</Title>
         <Image src={image.url} alt={image.alt} />
       </Link>

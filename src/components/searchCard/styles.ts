@@ -8,20 +8,15 @@ export const Container = styled.div`
   flex-grow: 1;
   gap: 16px;
   padding: 16px;
-  outline-offset: 2px;
-  outline: 2px solid transparent;
-  border-radius: 8px;
-  border: 2px solid transparent;
   z-index: 1;
   transition: all .4s;
 
-  &:hover{
-    border: 2px solid ${props => props.theme.colors.text};
-    outline: 2px solid ${props => props.theme.colors.text};
-  }
-
   a{
-    color: ${props => props.theme.colors.text}
+    color: ${props => props.theme.colors.text};
+
+    &:hover{
+      color: ${props => props.theme.colors.primary};
+    }
   }
 `
 
