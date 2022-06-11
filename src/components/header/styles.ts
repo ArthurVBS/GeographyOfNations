@@ -17,16 +17,9 @@ export const Logo = styled.h3`
   font-size: 1.3em;
 `
 
-export const ToggleSidebar = styled.button`
-  background-color: transparent;
-  color: ${props => props.theme.colors.text};
+export const RightBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.3em;
-  border: none;
-
-  @media screen and (min-width: 528px) {
-    display: none;
-  }
+  gap: 16px;
 `

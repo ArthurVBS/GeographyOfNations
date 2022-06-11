@@ -1,7 +1,4 @@
 import React from 'react'
-
-import Footer from '../../components/footer'
-import Header from '../../components/header'
 import SearchCard from '../../components/searchCard'
 
 import { SearchContainer } from './styles'
@@ -13,8 +10,6 @@ import undrawThingsToSay from '../../assets/undraw_things_to_say.svg'
 const Search: React.FC = () => {
   return (
     <>
-      <Header selected={'search'} />
-
       <SearchContainer>
         <SearchCard title='Search by Name' path='/search/name'
           image={{ url: undrawBestPlace, alt: 'A locator in a city' }}></SearchCard>
@@ -25,8 +20,6 @@ const Search: React.FC = () => {
         <SearchCard title='Search by Region' path='/search/Region'
           image={{ url: undrawExploring, alt: 'A girl exploring mountains' }}></SearchCard>
       </SearchContainer>
-
-      <Footer />
     </>
   )
 }

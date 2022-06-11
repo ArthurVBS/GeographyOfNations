@@ -1,29 +1,27 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useNavbar } from '../../contexts/NavbarContext'
 import { Container, IconLink } from './styles'
 
-type Props = {
-  selected: String
-  sidebar: { isOpen: boolean, setIsOpen: React.Dispatch<React.SetStateAction<boolean>> }
-}
+const Navbar: React.FC = () => {
+  const { selected, setSelected, isOpen, setIsOpen } = useNavbar()
 
-const Navbar: React.FC<Props> = ({ selected, sidebar }) => {
   const closeSidebar = () => {
-    sidebar.setIsOpen(false)
+    setIsOpen(false)
     window.scrollTo(0, 0)
   }
 
   return (
-    <Container isOpen={sidebar.isOpen} onClick={() => closeSidebar()}>
-      <IconLink selected={selected === 'home'}>
+    <Container isOpen={isOpen} onClick={() => closeSidebar()}>
+      <IconLink selected={selected === 'home'} onClick={() => setSelected('home')}>
         <Link to='/'>Home</Link>
       </IconLink>
 
-      <IconLink selected={selected === 'search'}>
+      <IconLink selected={selected === 'search'} onClick={() => setSelected('search')}>
         <Link to='/search'>Search</Link>
       </IconLink>
 
-      <IconLink selected={selected === 'contact'}>
+      <IconLink selected={selected === 'contact'} onClick={() => setSelected('contact')}>
         <Link to='/contact'>Contact</Link>
       </IconLink>
     </Container>

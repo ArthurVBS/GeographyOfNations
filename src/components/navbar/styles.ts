@@ -23,7 +23,7 @@ export const Container = styled.nav<ContainerProps>`
   min-width: 100vw;
   min-height: 100vh;
   overflow: hidden;
-  transition: all .4s;
+  transition: .4s transform;
   transform: ${props => (props.isOpen ? 'translateX(0%)' : 'translateX(100%)')};
 
   @media screen and (min-width: 528px) {
