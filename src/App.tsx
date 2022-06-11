@@ -1,26 +1,18 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import { BrowserRouter } from 'react-router-dom'
 import Routes from './routes'
 
-import { ThemeProvider, DefaultTheme } from 'styled-components'
 import GlobalStyles from './styles/global'
-import light from './styles/theme/light'
-import dark from './styles/theme/dark'
+import { ThemeContextProvider } from './contexts/ThemeContext'
 
 const App: React.FC = () => {
-  const [theme, setTheme] = useState<DefaultTheme>(dark)
-
-  const toggleTheme = () => {
-    setTheme(theme.title === 'light' ? dark : light);
-  }
-
   return (
     <BrowserRouter>
-      <ThemeProvider theme={theme}>
+      <ThemeContextProvider>
         <GlobalStyles />
         <Routes />
-      </ThemeProvider>
+      </ThemeContextProvider>
     </BrowserRouter>
   )
 }

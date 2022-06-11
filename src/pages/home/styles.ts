@@ -57,7 +57,7 @@ export const Button = styled.button`
     gap: 16px;
     font-size: 1.4em;
     padding: 8px 32px;
-    transition: all .3s;
+    transition: all .4s;
 
     &:hover > i{
       color: ${props => props.theme.colors.primary};
@@ -65,7 +65,7 @@ export const Button = styled.button`
 
     i{
       font-size: .9em;
-      transition: all .3s;
+      transition: all .4s;
       animation: 1s infinite alternate comeAndGo;
       animation-delay: 1s;
     }
