@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react'
 
 import API from '../../api/connection'
+import SearchInput from '../../components/searchInput'
 import { useNavbar } from '../../contexts/NavbarContext'
 
 type dataType = {
@@ -22,12 +23,14 @@ const SearchByName: React.FC = () => {
   }, [])
 
   const [data, setData] = useState<dataType>({})
-  const [name, setName] = useState('Argentina')
+  const [name, setName] = useState('Brazil')
   const [type, setType] = useState('name')
 
   const getNationData = useCallback((type: string, name: string) => {
     API.getData(type, name)
-      .then(data => setData(data[0]))
+      .then(data => data != undefined
+        ? setData(data[0])
+        : console.log('Show Error PopUp'))
   }, [])
 
   useEffect(() => {
@@ -96,6 +99,10 @@ const SearchByName: React.FC = () => {
         })}
       </ul>
       <img width='256px' src={data.flags?.svg} alt="Nation flag" />
+
+
+      <SearchInput setName={setName} />
+
     </main>
   )
 }
