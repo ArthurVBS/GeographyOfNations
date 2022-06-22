@@ -1,10 +1,7 @@
 import styled from 'styled-components'
 
-export const SearchContainer = styled.main`
+export const InputWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 16px;
-  padding: 16px;
+  justify-content: space-around;
 `

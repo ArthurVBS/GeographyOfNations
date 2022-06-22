@@ -20,10 +20,6 @@ const Navbar: React.FC = () => {
       <IconLink selected={selected === 'search'}>
         <Link to='/search'>Search</Link>
       </IconLink>
-
-      <IconLink selected={selected === 'contact'}>
-        <Link to='/contact'>Contact</Link>
-      </IconLink>
     </Container>
   )
 }

@@ -10,7 +10,7 @@ const SearchInput: React.FC<Props> = ({ setName }) => {
     const inputText = document.getElementById('input-text') as HTMLInputElement
     if (inputText != undefined && inputText != null) {
       setName(inputText.value)
-      // inputText.value = ''
+      inputText.value = ''
     }
   }
 
