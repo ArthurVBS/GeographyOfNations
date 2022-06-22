@@ -24,15 +24,18 @@ const SearchByName: React.FC = () => {
   }, [])
 
   const [data, setData] = useState<dataType>({})
-  const [name, setName] = useState('Portugal')
+  const [name, setName] = useState('')
   const [searchBy, setSearchBy] = useState('name')
+  const [errPopUp, setErrPopUp] = useState(false)
 
   const getNationData = useCallback((searchBy: string, name: string) => {
-    API.getData(searchBy, name)
-      .then(data => data != undefined
-        ? setData(data[0])
-        : console.log('Show Error PopUp')
-      )
+    if (name != '') {
+      API.getData(searchBy, name)
+        .then(data => data !== 404
+          ? setData(data[0])
+          : setErrPopUp(true)
+        )
+    }
   }, [])
 
   useEffect(() => {
@@ -103,6 +106,7 @@ const SearchByName: React.FC = () => {
 
   return (
     <main>
+      <SearchInput setName={setName} />
       <h1>Name: {data.name?.common}</h1>
       <h3>Capital: {data.capital?.toString().replace(/,/g, ', ')}</h3>
       <h3>Continents: {data.continents}</h3>
@@ -114,9 +118,8 @@ const SearchByName: React.FC = () => {
       {renderLanguages()}
       <img width='256px' src={data.flags?.svg} alt="Nation flag" />
 
-      <PopUp message='Hello' />
+      {errPopUp ? <PopUp message='Nation not found' setErrPopUp={setErrPopUp} /> : null}
 
-      <SearchInput setName={setName} />
     </main>
   )
 }

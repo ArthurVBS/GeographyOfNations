@@ -27,7 +27,7 @@ const SearchInput: React.FC<Props> = ({ setName }) => {
   return (
     <Container>
       <Input onKeyPress={handleKeyPress} type='text' placeholder='type here :)' id='input-text' />
-      <Button onClick={() => handleClick()}>search</Button>
+      <Button onClick={() => handleClick()}><i className="fas fa-search"></i></Button>
     </Container>
   )
 }

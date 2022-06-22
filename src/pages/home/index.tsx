@@ -33,7 +33,7 @@ const Home: React.FC = () => {
 
       <Container>
         <Image data-aos='fade-right' src={undrawAroundTheWorld} alt="A girl seeing the world" />
-        <Text data-aos='fade-left'>Search by nations and see their information! <i className="fas fa-globe-americas"></i></Text>
+        <Text data-aos='fade-left'>Search by nations, languages, regions and see their information! <i className="fas fa-globe-americas"></i></Text>
       </Container>
     </>
   )

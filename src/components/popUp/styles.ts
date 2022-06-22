@@ -44,11 +44,12 @@ export const Container = styled.div<ContainerProps>`
 `
 
 export const Text = styled.h4`
-  background-color: ${props => props.theme.colors.text};
-  color: ${props => props.theme.colors.secondary};
+  background-color: ${props => props.theme.colors.background};
+  color: ${props => props.theme.colors.primary};
   min-width: 260px;
   max-width: 460px;
   text-align: center;
   border-radius: 8px;
+  border: 2px solid ${props => props.theme.colors.primary};
   padding: 8px;
 `
