@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 
+import DataByLang from '../../components/dataByLang'
 import DataByName from '../../components/dataByName'
+import DataByRegion from '../../components/dataByRegion'
 import PopUp from '../../components/popUp'
 import SearchInput from '../../components/searchInput'
 import { useNavbar } from '../../contexts/NavbarContext'
@@ -17,12 +19,22 @@ const Search: React.FC = () => {
   const [searchBy, setSearchBy] = useState('name')
 
   const renderData = () => {
-    if (searchBy == 'name') {
-      return <DataByName searchBy={searchBy} value={value} setErrPopUp={setErrPopUp} />
+    switch (searchBy) {
+      case 'name':
+        return <DataByName value={value} setErrPopUp={setErrPopUp} />
+      case 'lang':
+        return <DataByLang value={value} setErrPopUp={setErrPopUp} />
+      case 'region':
+        return <DataByRegion value={value} setErrPopUp={setErrPopUp} />
+      default:
+        return null
     }
-    else {
-      return <h2>Working in progress</h2>
-    }
+  }
+
+  const renderError = () => {
+    return errPopUp.show
+      ? <PopUp message={errPopUp.message} setErrPopUp={setErrPopUp} />
+      : null
   }
 
   return (
@@ -33,8 +45,7 @@ const Search: React.FC = () => {
       <p>Input Value {value}</p>
 
       {renderData()}
-
-      {errPopUp.show ? <PopUp message={errPopUp.message} setErrPopUp={setErrPopUp} /> : null}
+      {renderError()}
     </main>
   )
 }

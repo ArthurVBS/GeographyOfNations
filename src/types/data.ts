@@ -8,3 +8,11 @@ export type searchByNameDataType = {
   name?: { common: string },
   population?: number
 }
+
+export type searchByLangDataType = [
+  nation?: searchByNameDataType,
+]
+
+export type searchByRegionDataType = [
+  nation?: searchByNameDataType,
+]

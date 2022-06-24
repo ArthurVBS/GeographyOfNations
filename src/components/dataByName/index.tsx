@@ -4,7 +4,6 @@ import API from '../../api/connection'
 import { searchByNameDataType } from '../../types/data'
 
 type Props = {
-  searchBy: string,
   value: string
   setErrPopUp: React.Dispatch<React.SetStateAction<{
     show: boolean;
@@ -12,10 +11,10 @@ type Props = {
   }>>
 }
 
-const DataByName: React.FC<Props> = ({ searchBy, value, setErrPopUp }) => {
+const DataByName: React.FC<Props> = ({ value, setErrPopUp }) => {
   const [data, setData] = useState<searchByNameDataType>({})
 
-  const getNationData = useCallback((searchBy: string, value: string) => {
+  const getData = useCallback((searchBy: string, value: string) => {
     if (value != '') {
       API.getData(searchBy, value)
         .then(data => {
@@ -29,8 +28,8 @@ const DataByName: React.FC<Props> = ({ searchBy, value, setErrPopUp }) => {
   }, [])
 
   useEffect(() => {
-    getNationData(searchBy, value)
-  }, [searchBy, value])
+    getData('name', value)
+  }, [value])
 
   const getCurrencies = (currenciesData: Object | undefined) => {
     if (currenciesData != undefined) {
