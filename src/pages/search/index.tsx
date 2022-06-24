@@ -3,10 +3,8 @@ import React, { useCallback, useEffect, useState } from 'react'
 import API from '../../api/connection'
 import PopUp from '../../components/popUp'
 import SearchInput from '../../components/searchInput'
-import SelectInput from '../../components/selectInput'
 import { useNavbar } from '../../contexts/NavbarContext'
 import { searchByNameDataType } from '../../types/data'
-import { InputWrapper } from './styles'
 
 const Search: React.FC = () => {
   const { setSelected } = useNavbar()
@@ -98,10 +96,7 @@ const Search: React.FC = () => {
 
   return (
     <main>
-      <InputWrapper>
-        <SelectInput searchBy={searchBy} setSearchBy={setSearchBy}></SelectInput>
-        <SearchInput setName={setName} />
-      </InputWrapper>
+      <SearchInput searchBy={searchBy} setSearchBy={setSearchBy} setName={setName} />
 
       <h1>Name: {data.name?.common}</h1>
       <h3>Capital: {data.capital?.toString().replace(/,/g, ', ')}</h3>
