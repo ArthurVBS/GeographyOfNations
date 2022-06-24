@@ -4,20 +4,28 @@ import { Button, Container, Input, Option, Select } from './styles'
 type Props = {
   searchBy: string,
   setSearchBy: React.Dispatch<React.SetStateAction<string>>,
-  setName: React.Dispatch<React.SetStateAction<string>>
+  setValue: React.Dispatch<React.SetStateAction<string>>,
+  setErrPopUp: React.Dispatch<React.SetStateAction<{
+    show: boolean;
+    message: string;
+  }>>
 }
 
-const SearchInput: React.FC<Props> = ({ searchBy, setSearchBy, setName }) => {
+const SearchInput: React.FC<Props> = ({ searchBy, setSearchBy, setValue, setErrPopUp }) => {
   const getInputData = () => {
     const inputText = document.getElementById('input-text') as HTMLInputElement
-    if (inputText != undefined && inputText != null) {
-      setName(inputText.value)
+    if (inputText != undefined || inputText != null) {
+      if (inputText.value == '') {
+        setErrPopUp({ show: true, message: 'Empty field' })
+      }
+      setValue(inputText.value)
       inputText.value = ''
     }
   }
 
   const handleChange = (value: string) => {
     setSearchBy(value)
+    setValue('')
   }
 
   const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {

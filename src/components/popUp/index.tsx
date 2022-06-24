@@ -3,7 +3,10 @@ import { Container, Text } from './styles'
 
 type Props = {
   message: string
-  setErrPopUp: React.Dispatch<React.SetStateAction<boolean>>
+  setErrPopUp: React.Dispatch<React.SetStateAction<{
+    show: boolean;
+    message: string;
+  }>>
 }
 
 const PopUp: React.FC<Props> = ({ message, setErrPopUp }) => {
@@ -11,7 +14,7 @@ const PopUp: React.FC<Props> = ({ message, setErrPopUp }) => {
 
   setTimeout(() => {
     setIsHide(true)
-    setErrPopUp(false)
+    setErrPopUp({ show: false, message: message })
   }, 3000)
 
   return (

@@ -24,6 +24,11 @@ export const Select = styled.select`
 `
 
 export const Option = styled.option`
+  background-color: ${props => props.theme.colors.background};
+  color: ${props => props.theme.colors.text};
+
+  font-size: 1.1em;
+  font-weight: 600;
 `
 
 export const Input = styled.input`

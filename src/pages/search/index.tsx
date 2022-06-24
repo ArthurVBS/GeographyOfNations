@@ -1,10 +1,9 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
-import API from '../../api/connection'
+import DataByName from '../../components/dataByName'
 import PopUp from '../../components/popUp'
 import SearchInput from '../../components/searchInput'
 import { useNavbar } from '../../contexts/NavbarContext'
-import { searchByNameDataType } from '../../types/data'
 
 const Search: React.FC = () => {
   const { setSelected } = useNavbar()
@@ -13,104 +12,29 @@ const Search: React.FC = () => {
     setSelected('search')
   }, [])
 
-  const [data, setData] = useState<searchByNameDataType>({})
-  const [name, setName] = useState('')
+  const [value, setValue] = useState('')
+  const [errPopUp, setErrPopUp] = useState({ show: false, message: '' })
   const [searchBy, setSearchBy] = useState('name')
-  const [errPopUp, setErrPopUp] = useState(false)
 
-  const getNationData = useCallback((searchBy: string, name: string) => {
-    if (name != '') {
-      API.getData(searchBy, name)
-        .then(data => data !== 404
-          ? setData(data[0])
-          : setErrPopUp(true)
-        )
+  const renderData = () => {
+    if (searchBy == 'name') {
+      return <DataByName searchBy={searchBy} value={value} setErrPopUp={setErrPopUp} />
     }
-  }, [])
-
-  useEffect(() => {
-    getNationData(searchBy, name)
-  }, [searchBy, name])
-
-  const getCurrencies = (currenciesData: Object | undefined) => {
-    if (currenciesData != undefined) {
-      const size = Object.keys(currenciesData).length
-      const currencies = []
-
-      for (let i = 0; i < size; i++) {
-        const newCurrenciesData = {
-          curr: Object.keys(currenciesData)[i],
-          name: Object.values(currenciesData)[i].name,
-          symbol: Object.values(currenciesData)[i].symbol
-        }
-        currencies.push(newCurrenciesData)
-      }
-
-      return currencies
+    else {
+      return <h2>Working in progress</h2>
     }
-  }
-
-  const renderCurrencies = () => {
-    return (
-      <ul>
-        {getCurrencies(data.currencies)?.map((currencies) => {
-          return (
-            <li key={currencies.curr}>
-              {`${currencies.curr} - ${currencies.name} - ${currencies.symbol}`}
-            </li>
-          )
-        })}
-      </ul>
-    )
-  }
-
-  const getLanguages = (languagesData: Object | undefined) => {
-    if (languagesData != undefined) {
-      const size = Object.keys(languagesData).length
-      const languages = []
-
-      for (let i = 0; i < size; i++) {
-        const newLanguagesData = {
-          name: Object.values(languagesData)[i]
-        }
-        languages.push(newLanguagesData)
-      }
-
-      return languages
-    }
-  }
-
-  const renderLanguages = () => {
-    return (
-      <ul>
-        {getLanguages(data.languages)?.map((langs) => {
-          return (
-            <li key={langs.name}>
-              {langs.name}
-            </li>
-          )
-        })}
-      </ul>
-    )
   }
 
   return (
     <main>
-      <SearchInput searchBy={searchBy} setSearchBy={setSearchBy} setName={setName} />
+      <SearchInput searchBy={searchBy} setSearchBy={setSearchBy} setValue={setValue} setErrPopUp={setErrPopUp} />
 
-      <h1>Name: {data.name?.common}</h1>
-      <h3>Capital: {data.capital?.toString().replace(/,/g, ', ')}</h3>
-      <h3>Continents: {data.continents}</h3>
-      <h3>Borders: {data.borders?.toString().replace(/,/g, ', ')}</h3>
-      <h3>Population: {data.population?.toLocaleString('pt-BR')}</h3>
-      <h3>Currencies:</h3>
-      {renderCurrencies()}
-      <h3>Languages:</h3>
-      {renderLanguages()}
-      <img width='256px' src={data.flags?.svg} alt="Nation flag" />
+      <p>Search By {searchBy}</p>
+      <p>Input Value {value}</p>
 
-      {errPopUp ? <PopUp message='Nation not found' setErrPopUp={setErrPopUp} /> : null}
+      {renderData()}
 
+      {errPopUp.show ? <PopUp message={errPopUp.message} setErrPopUp={setErrPopUp} /> : null}
     </main>
   )
 }
