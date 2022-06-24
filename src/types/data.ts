@@ -9,6 +9,11 @@ export type searchByNameDataType = {
   population?: number
 }
 
+export type searchByCodDataType = {
+  flags?: { svg: string },
+  name?: { common: string }
+}
+
 export type searchByLangDataType = [
   nation?: searchByNameDataType,
 ]

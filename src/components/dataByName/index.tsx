@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react'
 
 import API from '../../api/connection'
 import { searchByNameDataType } from '../../types/data'
+import DataByCod from '../dataByCod'
 
 type Props = {
   value: string
@@ -93,12 +94,19 @@ const DataByName: React.FC<Props> = ({ value, setErrPopUp }) => {
     )
   }
 
+  const renderBorderNations = () => {
+    return data.borders?.map((nation) => {
+      return <DataByCod key={nation} value={nation} setErrPopUp={setErrPopUp} />
+    })
+  }
+
   return (
     <>
       <h1>Name: {data.name?.common}</h1>
       <h3>Capital: {data.capital?.toString().replace(/,/g, ', ')}</h3>
       <h3>Continents: {data.continents}</h3>
-      <h3>Borders: {data.borders?.toString().replace(/,/g, ', ')}</h3>
+      <h3>Borders:</h3>
+      {renderBorderNations()}
       <h3>Population: {data.population?.toLocaleString('pt-BR')}</h3>
       <h3>Currencies:</h3>
       {renderCurrencies()}
