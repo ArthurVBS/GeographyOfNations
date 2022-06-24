@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react'
 
 import API from '../../api/connection'
+import SquareFlag from '../squareFlag'
 import { searchByCodDataType } from '../../types/data'
 
 type Props = {
@@ -31,10 +32,10 @@ const DataByCod: React.FC<Props> = ({ value, setErrPopUp }) => {
     getData('alpha', value)
   }, [value])
 
-  return(
+  return (
     <>
       <p>{data.name?.common}</p>
-      <img width='64px' src={data.flags?.svg} alt="Nation flag" />
+      <SquareFlag map={data.maps?.googleMaps} size='96px' src={data.flags?.svg} alt='Nation flag' />
     </>
   )
 }

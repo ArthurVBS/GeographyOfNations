@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react'
 
 import API from '../../api/connection'
+import SquareFlag from '../squareFlag'
 import { searchByRegionDataType } from '../../types/data'
 
 type Props = {
@@ -36,7 +37,7 @@ const DataByRegion: React.FC<Props> = ({ value, setErrPopUp }) => {
       return (
         <div key={nation?.name?.common}>
           <h3>{nation?.name?.common}</h3>
-          <img width='256px' src={nation?.flags?.svg} alt="Nation flag" />
+          <SquareFlag map={nation?.maps?.googleMaps} size='192px' src={nation?.flags?.svg} alt='Nation flag' />
         </div>
       )
     })

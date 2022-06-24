@@ -105,6 +105,7 @@ const DataByName: React.FC<Props> = ({ value, setErrPopUp }) => {
       <h1>Name: {data.name?.common}</h1>
       <h3>Capital: {data.capital?.toString().replace(/,/g, ', ')}</h3>
       <h3>Continents: {data.continents}</h3>
+      <a href={data.maps?.googleMaps} target='_blank'>Map <i className="fas fa-map-marked-alt"></i></a>
       <h3>Borders:</h3>
       {renderBorderNations()}
       <h3>Population: {data.population?.toLocaleString('pt-BR')}</h3>
