@@ -45,6 +45,7 @@ const DataByLang: React.FC<Props> = ({ value, setErrPopUp }) => {
 
   return (
     <>
+      <h3>{value} - {data.length}</h3>
       {renderData()}
     </>
   )

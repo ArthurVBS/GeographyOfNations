@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import Aos from 'aos'
 import { Button, Container, Input, Option, Select } from './styles'
 
 type Props = {
@@ -12,13 +13,17 @@ type Props = {
 }
 
 const SearchInput: React.FC<Props> = ({ searchBy, setSearchBy, setValue, setErrPopUp }) => {
+  const capitalizeFirstLetter = (word: string) => {
+    return word.charAt(0).toUpperCase() + word.slice(1)
+  }
+
   const getInputData = () => {
     const inputText = document.getElementById('input-text') as HTMLInputElement
     if (inputText != undefined || inputText != null) {
       if (inputText.value == '') {
         setErrPopUp({ show: true, message: 'Empty field' })
       }
-      setValue(inputText.value)
+      setValue(capitalizeFirstLetter(inputText.value.trim()))
       inputText.value = ''
     }
   }
@@ -38,8 +43,12 @@ const SearchInput: React.FC<Props> = ({ searchBy, setSearchBy, setValue, setErrP
     getInputData()
   }
 
+  useEffect(() => {
+    Aos.init({ duration: 1000, once: false })
+  })
+
   return (
-    <Container>
+    <Container data-aos='fade-right'>
       <Select value={searchBy} id='select' onChange={(e) => handleChange(e.target.value)}>
         <Option value='name'>Name</Option>
         <Option value='lang'>Language</Option>
