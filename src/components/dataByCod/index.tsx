@@ -33,10 +33,10 @@ const DataByCod: React.FC<Props> = ({ value, setErrPopUp }) => {
   }, [value])
 
   return (
-    <>
+    <div>
       <p>{data.name?.common}</p>
       <SquareFlag map={data.maps?.googleMaps} size='96px' src={data.flags?.svg} alt='Nation flag' />
-    </>
+    </div>
   )
 }
 

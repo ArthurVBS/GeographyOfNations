@@ -3,6 +3,7 @@ import React, { useCallback, useEffect, useState } from 'react'
 import API from '../../api/connection'
 import { searchByNameDataType } from '../../types/data'
 import DataByCod from '../dataByCod'
+import { BordersContainer, Container, Flag, LinkMaps, Text } from './styles'
 
 type Props = {
   value: string
@@ -32,88 +33,83 @@ const DataByName: React.FC<Props> = ({ value, setErrPopUp }) => {
     getData('name', value)
   }, [value])
 
-  const getCurrencies = (currenciesData: Object | undefined) => {
+  const getCurrencies = (currenciesData?: Object) => {
     if (currenciesData != undefined) {
+      const MAX_CURRENCIES = 3
       const size = Object.keys(currenciesData).length
       const currencies = []
 
       for (let i = 0; i < size; i++) {
-        const newCurrenciesData = {
-          curr: Object.keys(currenciesData)[i],
-          name: Object.values(currenciesData)[i].name,
-          symbol: Object.values(currenciesData)[i].symbol
+        if (i < MAX_CURRENCIES) {
+          const newCurrenciesData = {
+            curr: Object.keys(currenciesData)[i],
+            name: Object.values(currenciesData)[i].name,
+            symbol: Object.values(currenciesData)[i].symbol
+          }
+          currencies.push(`${newCurrenciesData.symbol} ${newCurrenciesData.curr} - ${newCurrenciesData.name}`)
         }
-        currencies.push(newCurrenciesData)
       }
-
       return currencies
     }
   }
 
-  const renderCurrencies = () => {
-    return (
-      <ul>
-        {getCurrencies(data.currencies)?.map((currencies) => {
-          return (
-            <li key={currencies.curr}>
-              {`${currencies.curr} - ${currencies.name} - ${currencies.symbol}`}
-            </li>
-          )
-        })}
-      </ul>
-    )
-  }
-
-  const getLanguages = (languagesData: Object | undefined) => {
+  const getLanguages = (languagesData?: object) => {
     if (languagesData != undefined) {
+      const MAX_LANGUAGES = 3
       const size = Object.keys(languagesData).length
       const languages = []
 
       for (let i = 0; i < size; i++) {
-        const newLanguagesData = {
-          name: Object.values(languagesData)[i]
+        if (i < MAX_LANGUAGES) {
+          const newLanguagesData = Object.values(languagesData)[i]
+          languages.push(newLanguagesData)
         }
-        languages.push(newLanguagesData)
       }
 
       return languages
     }
   }
 
-  const renderLanguages = () => {
-    return (
-      <ul>
-        {getLanguages(data.languages)?.map((langs) => {
-          return (
-            <li key={langs.name}>
-              {langs.name}
-            </li>
-          )
-        })}
-      </ul>
-    )
+  const renderBorderNations = () => {
+    if (data.borders != undefined) {
+      return (
+        <BordersContainer>
+          {data.borders?.map((nation) => {
+            return <DataByCod key={nation} value={nation} setErrPopUp={setErrPopUp} />
+          })}
+        </BordersContainer>
+      )
+    }
   }
 
-  const renderBorderNations = () => {
-    return data.borders?.map((nation) => {
-      return <DataByCod key={nation} value={nation} setErrPopUp={setErrPopUp} />
-    })
+  const renderData = () => {
+    if (value != '') {
+      return (
+        <Container>
+          <Flag src={data.flags?.svg} alt="Nation flag" />
+
+          <Text><i className="fas fa-flag"></i> {data.name?.common}</Text>
+          <Text><i className="fas fa-city"></i> {data.capital?.toString().replace(/,/g, ', ')}</Text>
+          <Text><i className="fas fa-globe-americas"></i> {data.continents}</Text>
+          <Text><i className="fas fa-users"></i> {data.population?.toLocaleString('pt-BR')}</Text>
+          <Text><i className="fas fa-language"></i> {getLanguages(data.languages)?.toString().replace(/,/g, ', ')}</Text>
+          <Text><i className="fas fa-coins"></i> {getCurrencies(data.currencies)?.toString().replace(/,/g, '; ')}</Text>
+
+          {renderBorderNations()}
+
+          <LinkMaps href={data.maps?.googleMaps} target='_blank'>
+            <i className="fas fa-map-marked-alt"></i>
+          </LinkMaps>
+        </Container>
+      )
+    }
+
+    return null
   }
 
   return (
     <>
-      <h1>Name: {data.name?.common}</h1>
-      <h3>Capital: {data.capital?.toString().replace(/,/g, ', ')}</h3>
-      <h3>Continents: {data.continents}</h3>
-      <a href={data.maps?.googleMaps} target='_blank'>Map <i className="fas fa-map-marked-alt"></i></a>
-      <h3>Borders:</h3>
-      {renderBorderNations()}
-      <h3>Population: {data.population?.toLocaleString('pt-BR')}</h3>
-      <h3>Currencies:</h3>
-      {renderCurrencies()}
-      <h3>Languages:</h3>
-      {renderLanguages()}
-      <img width='256px' src={data.flags?.svg} alt="Nation flag" />
+      {renderData()}
     </>
   )
 }

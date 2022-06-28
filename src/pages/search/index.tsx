@@ -41,9 +41,6 @@ const Search: React.FC = () => {
     <main>
       <SearchInput searchBy={searchBy} setSearchBy={setSearchBy} setValue={setValue} setErrPopUp={setErrPopUp} />
 
-      <p>Search By {searchBy}</p>
-      <p>Input Value {value}</p>
-
       {renderData()}
       {renderError()}
     </main>
