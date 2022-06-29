@@ -11,6 +11,8 @@ export type searchByNameDataType = {
 }
 
 export type searchByCodDataType = {
+  capital?: string[],
+  continents?: string,
   flags?: { svg: string },
   maps?: { googleMaps: string },
   name?: { common: string }

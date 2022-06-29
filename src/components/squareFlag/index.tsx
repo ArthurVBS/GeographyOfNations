@@ -12,7 +12,7 @@ type Props = {
 
 const SquareFlag: React.FC<Props> = ({ size, src, alt, map }) => {
   useEffect(() => {
-    Aos.init({ duration: 1000, once: false, offset: -100, delay: 200 })
+    Aos.init({ duration: 800, once: false, offset: -100, delay: 200 })
   })
 
   return (

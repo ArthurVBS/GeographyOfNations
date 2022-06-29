@@ -10,8 +10,8 @@ export const Flag = styled.img<FlagProps>`
   cursor: pointer;
   object-fit: cover;
   object-position: center;
-  border: #00000010 4px solid;
-  border-radius: 8px;
+  border: 4px solid ${props => props.theme.title == 'light' ? '#0000001F' : '#FFFFFF1F'};
+  border-radius: 16px;
   transition: width .4s;
 
   &:hover{

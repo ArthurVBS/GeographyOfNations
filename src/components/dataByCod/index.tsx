@@ -1,8 +1,10 @@
 import React, { useCallback, useEffect, useState } from 'react'
+import Aos from 'aos'
 
 import API from '../../api/connection'
 import SquareFlag from '../squareFlag'
 import { searchByCodDataType } from '../../types/data'
+import { Box, Container, Icon, Text, Title } from './styles'
 
 type Props = {
   value: string
@@ -32,11 +34,23 @@ const DataByCod: React.FC<Props> = ({ value, setErrPopUp }) => {
     getData('alpha', value)
   }, [value])
 
+  useEffect(() => {
+    Aos.init({ duration: 1000, once: false })
+  })
+
   return (
-    <div>
-      <p>{data.name?.common}</p>
+    <Container data-aos='fade-up'>
+      <Title>{data.name?.common}</Title>
       <SquareFlag map={data.maps?.googleMaps} size='96px' src={data.flags?.svg} alt='Nation flag' />
-    </div>
+      <Box>
+        <Icon className="fas fa-city"></Icon>
+        <Text>{data.capital?.toString().replace(/,/g, ', ')}</Text>
+      </Box>
+      <Box>
+        <Icon className="fas fa-globe-americas"></Icon>
+        <Text>{data.continents}</Text>
+      </Box>
+    </Container>
   )
 }
 

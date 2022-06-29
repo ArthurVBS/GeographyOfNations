@@ -3,7 +3,7 @@ import React, { useCallback, useEffect, useState } from 'react'
 import API from '../../api/connection'
 import { searchByNameDataType } from '../../types/data'
 import DataByCod from '../dataByCod'
-import { BordersContainer, Container, Flag, LinkMaps, Text } from './styles'
+import { BordersContainer, BordersTitle, Container, Flag, LinkMaps, Text } from './styles'
 
 type Props = {
   value: string
@@ -46,7 +46,7 @@ const DataByName: React.FC<Props> = ({ value, setErrPopUp }) => {
             name: Object.values(currenciesData)[i].name,
             symbol: Object.values(currenciesData)[i].symbol
           }
-          currencies.push(`${newCurrenciesData.symbol} ${newCurrenciesData.curr} - ${newCurrenciesData.name}`)
+          currencies.push(`(${newCurrenciesData.symbol}) ${newCurrenciesData.curr} - ${newCurrenciesData.name}`)
         }
       }
       return currencies
@@ -74,6 +74,12 @@ const DataByName: React.FC<Props> = ({ value, setErrPopUp }) => {
     if (data.borders != undefined) {
       return (
         <BordersContainer>
+          <BordersTitle>
+            <i className="fas fa-border-none"></i>
+            Borders - {data.borders.length}
+            <i className="fas fa-border-none"></i>
+          </BordersTitle>
+
           {data.borders?.map((nation) => {
             return <DataByCod key={nation} value={nation} setErrPopUp={setErrPopUp} />
           })}
