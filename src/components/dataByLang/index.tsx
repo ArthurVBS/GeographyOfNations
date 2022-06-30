@@ -24,8 +24,8 @@ const DataByLang: React.FC<Props> = ({ value, setErrPopUp }) => {
           if (data == 404 || data == 500) {
             setErrPopUp({ show: true, message: 'Nations not found' })
           } else {
-            setData(data)
             setCurrLang(value)
+            setData(data)
           }
         })
     }
@@ -38,7 +38,7 @@ const DataByLang: React.FC<Props> = ({ value, setErrPopUp }) => {
   const renderNation = () => {
     return data.map((nation) => {
       return (
-        <NationCard key={nation?.name?.common} nation={nation} />
+        <NationCard key={nation?.name?.common} nation={nation} details={'continents'}  />
       )
     })
   }

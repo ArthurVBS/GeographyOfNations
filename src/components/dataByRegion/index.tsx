@@ -1,8 +1,9 @@
 import React, { useCallback, useEffect, useState } from 'react'
 
 import API from '../../api/connection'
-import SquareFlag from '../squareFlag'
 import { searchByRegionDataType } from '../../types/data'
+import NationCard from '../nationCard'
+import { Container, Title } from './styles'
 
 type Props = {
   value: string
@@ -14,6 +15,7 @@ type Props = {
 
 const DataByRegion: React.FC<Props> = ({ value, setErrPopUp }) => {
   const [data, setData] = useState<searchByRegionDataType>([])
+  const [currRegion, setCurrRegion] = useState('')
 
   const getData = useCallback((searchBy: string, value: string) => {
     if (value != '') {
@@ -22,6 +24,7 @@ const DataByRegion: React.FC<Props> = ({ value, setErrPopUp }) => {
           if (data == 404 || data == 500) {
             setErrPopUp({ show: true, message: 'Nations not found' })
           } else {
+            setCurrRegion(value)
             setData(data)
           }
         })
@@ -32,20 +35,33 @@ const DataByRegion: React.FC<Props> = ({ value, setErrPopUp }) => {
     getData('region', value)
   }, [value])
 
-  const renderData = () => {
+  const renderNation = () => {
     return data.map((nation) => {
       return (
-        <div key={nation?.name?.common}>
-          <h3>{nation?.name?.common}</h3>
-          <SquareFlag map={nation?.maps?.googleMaps} size='192px' src={nation?.flags?.svg} alt='Nation flag' />
-        </div>
+        <NationCard key={nation?.name?.common} nation={nation} details={'languages'} />
       )
     })
   }
 
+  const renderData = () => {
+    if (value != '') {
+      return (
+        <Container>
+          <Title>
+            <i className="fas fa-globe-americas"></i>
+            {currRegion} - {data.length}
+            <i className="fas fa-globe-africa"></i>
+          </Title>
+
+          {renderNation()}
+        </Container>
+      )
+    }
+    return null
+  }
+
   return (
     <>
-      <h3>{value} - {data.length}</h3>
       {renderData()}
     </>
   )
