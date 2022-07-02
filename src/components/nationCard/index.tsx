@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react'
-import Aos from 'aos'
+import React from 'react'
 
 import SquareFlag from '../squareFlag'
 import getLanguages from '../../utils/getLanguages'
@@ -16,10 +15,6 @@ type Props = {
 }
 
 const NationCard: React.FC<Props> = ({ nation, details }) => {
-
-  useEffect(() => {
-    Aos.init({ duration: 1000, once: true })
-  })
 
   const renderLanguages = () => {
     return (

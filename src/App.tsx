@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import Aos from 'aos'
 
 import { BrowserRouter } from 'react-router-dom'
 import Routes from './routes'
@@ -11,6 +12,10 @@ import { ThemeContextProvider } from './contexts/ThemeContext'
 import { NavbarContextProvider } from './contexts/NavbarContext'
 
 const App: React.FC = () => {
+  useEffect(() => {
+    Aos.init({ duration: 1000, once: true })
+  })
+
   return (
     <BrowserRouter>
       <ThemeContextProvider>

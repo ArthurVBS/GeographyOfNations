@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react'
-import Aos from 'aos'
+import React from 'react'
 import { Button, Container, Input, Option, Select } from './styles'
 
 type Props = {
@@ -44,10 +43,6 @@ const SearchInput: React.FC<Props> = ({ searchBy, setSearchBy, setValue, setErrP
   const handleClick = () => {
     getInputData()
   }
-
-  useEffect(() => {
-    Aos.init({ duration: 1000, once: true })
-  })
 
   return (
     <Container data-aos='fade-right'>

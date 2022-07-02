@@ -8,7 +8,7 @@ import SearchInput from '../../components/searchInput'
 
 import isometricSearch from '../../assets/isometric_search.svg'
 import { useNavbar } from '../../contexts/NavbarContext'
-import { Container, Image, SearchSection, TextSection } from './styles'
+import { Container, Image, SearchSection, Text, TextSection, TextWrapper, Title } from './styles'
 
 const Search: React.FC = () => {
   const { setSelected } = useNavbar()
@@ -43,8 +43,16 @@ const Search: React.FC = () => {
   return (
     <Container>
       <TextSection>
-        <Image src={isometricSearch} alt='A man writing code' />
-        <p>You're searching by {searchBy}</p>
+        <TextWrapper data-aos='zoom-out-down'>
+          <Title>Geography Of Nations <i className="fas fa-globe-europe"></i></Title>
+          <Text>
+            You can search by <span>name</span>, <span>language</span> or <span>region</span>.
+          </Text>
+          <Text>
+            So let's go... <span>Type</span> what you're looking for in the entry below and see <span>what happens</span>.
+          </Text>
+        </TextWrapper>
+        <Image data-aos='zoom-out-up' src={isometricSearch} alt='A man searching something' />
       </TextSection>
 
       <SearchSection>

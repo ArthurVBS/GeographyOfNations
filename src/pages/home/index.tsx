@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-import Aos from 'aos'
 import { Button, Container, Content, HomeSection, Image, Text, TextSection, Title } from './styles'
 
 import isometricCoding from '../../assets/isometric_coding.svg'
@@ -13,10 +12,6 @@ const Home: React.FC = () => {
   useEffect(() => {
     setSelected('home')
   }, [])
-
-  useEffect(() => {
-    Aos.init({ duration: 1000, once: false })
-  })
 
   return (
     <Container>
@@ -33,13 +28,13 @@ const Home: React.FC = () => {
       </HomeSection>
 
       <TextSection>
-        <Image data-aos='fade-right' src={isometricWeb} alt="A girl seeing the world" />
+        <Image data-aos='fade-right' src={isometricWeb} alt="A man seeing the world" />
         <Text data-aos='fade-left'>Search by nations, languages, regions and see their information! <i className="fas fa-globe-americas"></i></Text>
       </TextSection>
 
       <TextSection>
         <Text data-aos='fade-right'>Search by nations, languages, regions and see their information! <i className="fas fa-globe-americas"></i></Text>
-        <Image data-aos='fade-left' src={isometricCoding} alt="A girl seeing the world" />
+        <Image data-aos='fade-left' src={isometricCoding} alt="A man writing code" />
       </TextSection>
     </Container>
   )
