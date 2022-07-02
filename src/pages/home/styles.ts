@@ -85,9 +85,20 @@ export const Button = styled.button`
   }
 `
 
-export const TextSection = styled.main`
+export const TextSection = styled.section`
   display: flex;
-  flex-wrap: wrap-reverse;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  overflow-x: hidden;
+  gap: 32px;
+  padding: 16px;
+`
+
+export const ContactSection = styled.section`
+  background-color: ${props => props.theme.title == 'light' ? '#0000001F' : '#FFFFFF1F'};
+  display: flex;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
   overflow-x: hidden;
@@ -98,7 +109,30 @@ export const TextSection = styled.main`
 export const Image = styled.img`
   width: 100%;
   max-width: 400px;
-  `
+`
+
+export const RoundedImage = styled.img`
+  width: 100%;
+  max-width: 180px;
+  border: 4px solid ${props => props.theme.title == 'light' ? '#0000001F' : '#FFFFFF1F'};
+  border-radius: 16px;
+`
+
+export const TextWrapper = styled.div`
+  background-color: ${props => props.theme.title == 'light' ? '#0000001F' : '#FFFFFF1F'};
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap: 32px 16px;
+  border-radius: 16px;
+  padding: 16px;
+
+  @media screen and (min-width: 528px) {
+    flex-direction: row;
+  }
+`
 
 export const Text = styled.p`
   color: ${props => props.theme.colors.text};
@@ -106,4 +140,10 @@ export const Text = styled.p`
   font-size: 1.4em;
   width: 100%;
   max-width: 400px;
+
+  span {
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: ${props => props.theme.colors.primary};
+  }
 `

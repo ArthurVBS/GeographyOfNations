@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Button, Container, Content, HomeSection, Image, Text, TextSection, Title } from './styles'
+import { Button, ContactSection, Container, Content, HomeSection, Image, RoundedImage, Text, TextSection, TextWrapper, Title } from './styles'
 
 import isometricCoding from '../../assets/isometric_coding.svg'
 import isometricWeb from '../../assets/isometric_web.svg'
@@ -29,13 +29,16 @@ const Home: React.FC = () => {
 
       <TextSection>
         <Image data-aos='fade-right' src={isometricWeb} alt="A man seeing the world" />
-        <Text data-aos='fade-left'>Search by nations, languages, regions and see their information! <i className="fas fa-globe-americas"></i></Text>
+        <Text data-aos='fade-left'>Search by <span>name</span>, <span>language</span> or <span>region</span> and see their information! <i className="fas fa-globe-americas"></i></Text>
       </TextSection>
 
-      <TextSection>
-        <Text data-aos='fade-right'>Search by nations, languages, regions and see their information! <i className="fas fa-globe-americas"></i></Text>
-        <Image data-aos='fade-left' src={isometricCoding} alt="A man writing code" />
-      </TextSection>
+      <ContactSection>
+        <Image data-aos='fade-up' src={isometricCoding} alt="A man writing code" />
+        <TextWrapper data-aos='fade-right' >
+          <RoundedImage src="https://avatars.githubusercontent.com/u/84406367?v=4" alt="Arthur, the developer." />
+          <Text style={{ maxWidth: '728px' }}>Hi! <i className="far fa-hand-peace"></i> I'm <span>Arthur V.B.S.</span> <br /><br /> Creator <i className="fas fa-tools"></i> and Developer <i className="fas fa-laptop-code"></i> of the <span>'+ Nations'</span> project.</Text>
+        </TextWrapper>
+      </ContactSection>
     </Container>
   )
 }
