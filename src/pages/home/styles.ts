@@ -1,5 +1,9 @@
 import styled from 'styled-components'
 
+export const Container = styled.main`
+
+`
+
 export const HomeSection = styled.section`
   background: linear-gradient(#00000060, #000000D0 100%), url('./src/assets/pexels_world_and_pins.jpg');
   background-repeat: no-repeat;
@@ -81,7 +85,7 @@ export const Button = styled.button`
   }
 `
 
-export const Container = styled.main`
+export const TextSection = styled.main`
   display: flex;
   flex-wrap: wrap-reverse;
   justify-content: space-around;

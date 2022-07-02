@@ -1,8 +1,8 @@
 import React, { useCallback, useEffect, useState } from 'react'
 
 import API from '../../api/connection'
-import { searchByRegionDataType } from '../../types/data'
 import NationCard from '../nationCard'
+import { searchByRegionDataType } from '../../types/data'
 import { Container, Title } from './styles'
 
 type Props = {
@@ -35,10 +35,10 @@ const DataByRegion: React.FC<Props> = ({ value, setErrPopUp }) => {
     getData('region', value)
   }, [value])
 
-  const renderNation = () => {
+  const renderNations = () => {
     return data.map((nation) => {
       return (
-        <NationCard key={nation?.name?.common} nation={nation} details={'languages'} />
+        <NationCard key={nation?.name?.common} nation={nation} details={{ continents: false, languages: true }} />
       )
     })
   }
@@ -49,22 +49,18 @@ const DataByRegion: React.FC<Props> = ({ value, setErrPopUp }) => {
         <Container>
           <Title>
             <i className="fas fa-globe-americas"></i>
-            {currRegion} - {data.length}
+            {currRegion != '' ? currRegion : 'Searching'} - {data.length}
             <i className="fas fa-globe-africa"></i>
           </Title>
 
-          {renderNation()}
+          {renderNations()}
         </Container>
       )
     }
     return null
   }
 
-  return (
-    <>
-      {renderData()}
-    </>
-  )
+  return renderData()
 }
 
 export default DataByRegion

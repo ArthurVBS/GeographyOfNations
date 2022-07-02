@@ -5,7 +5,10 @@ import DataByName from '../../components/dataByName'
 import DataByRegion from '../../components/dataByRegion'
 import PopUp from '../../components/popUp'
 import SearchInput from '../../components/searchInput'
+
+import isometricSearch from '../../assets/isometric_coding.svg'
 import { useNavbar } from '../../contexts/NavbarContext'
+import { Container, Image, SearchSection, TextSection } from './styles'
 
 const Search: React.FC = () => {
   const { setSelected } = useNavbar()
@@ -38,12 +41,19 @@ const Search: React.FC = () => {
   }
 
   return (
-    <main>
-      <SearchInput searchBy={searchBy} setSearchBy={setSearchBy} setValue={setValue} setErrPopUp={setErrPopUp} />
+    <Container>
+      <TextSection>
+        <Image src={isometricSearch} alt='A man writing code' />
+        <p>You're searching by {searchBy}</p>
+      </TextSection>
 
-      {renderData()}
-      {renderError()}
-    </main>
+      <SearchSection>
+        <SearchInput searchBy={searchBy} setSearchBy={setSearchBy} setValue={setValue} setErrPopUp={setErrPopUp} />
+
+        {renderData()}
+        {renderError()}
+      </SearchSection>
+    </Container>
   )
 }
 

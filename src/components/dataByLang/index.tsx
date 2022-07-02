@@ -1,8 +1,8 @@
 import React, { useCallback, useEffect, useState } from 'react'
 
 import API from '../../api/connection'
-import { searchByLangDataType } from '../../types/data'
 import NationCard from '../nationCard'
+import { searchByLangDataType } from '../../types/data'
 import { Container, Title } from './styles'
 
 type Props = {
@@ -35,10 +35,10 @@ const DataByLang: React.FC<Props> = ({ value, setErrPopUp }) => {
     getData('lang', value)
   }, [value])
 
-  const renderNation = () => {
+  const renderNations = () => {
     return data.map((nation) => {
       return (
-        <NationCard key={nation?.name?.common} nation={nation} details={'continents'}  />
+        <NationCard key={nation?.name?.common} nation={nation} details={{ continents: true, languages: false }} />
       )
     })
   }
@@ -49,22 +49,18 @@ const DataByLang: React.FC<Props> = ({ value, setErrPopUp }) => {
         <Container>
           <Title>
             <i className="fas fa-language"></i>
-            {currLang} - {data.length}
+            {currLang != '' ? currLang : 'Searching'} - {data.length}
             <i className="fas fa-language"></i>
           </Title>
 
-          {renderNation()}
+          {renderNations()}
         </Container>
       )
     }
     return null
   }
 
-  return (
-    <>
-      {renderData()}
-    </>
-  )
+  return renderData()
 }
 
 export default DataByLang

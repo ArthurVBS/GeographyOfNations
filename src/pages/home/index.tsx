@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import Aos from 'aos'
-import { Button, Container, Content, HomeSection, Image, Text, Title } from './styles'
+import { Button, Container, Content, HomeSection, Image, Text, TextSection, Title } from './styles'
 
 import undrawAroundTheWorld from '../../assets/undraw_around_the_world.svg'
 import { Link } from 'react-router-dom'
@@ -18,7 +18,7 @@ const Home: React.FC = () => {
   })
 
   return (
-    <>
+    <Container>
       <HomeSection>
         <Content data-aos='fade-right'>
           <Title>Welcome to the + Nations Project</Title>
@@ -31,11 +31,11 @@ const Home: React.FC = () => {
         </Content>
       </HomeSection>
 
-      <Container>
+      <TextSection>
         <Image data-aos='fade-right' src={undrawAroundTheWorld} alt="A girl seeing the world" />
         <Text data-aos='fade-left'>Search by nations, languages, regions and see their information! <i className="fas fa-globe-americas"></i></Text>
-      </Container>
-    </>
+      </TextSection>
+    </Container>
   )
 }
 

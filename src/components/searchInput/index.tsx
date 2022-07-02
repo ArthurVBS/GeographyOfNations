@@ -13,17 +13,19 @@ type Props = {
 }
 
 const SearchInput: React.FC<Props> = ({ searchBy, setSearchBy, setValue, setErrPopUp }) => {
-  const capitalizeFirstLetter = (word: string) => {
-    return word.charAt(0).toUpperCase() + word.slice(1)
+  const capitalizeSentence = (sentence: string) => {
+    return sentence.trim().toLowerCase().replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase())))
   }
 
   const getInputData = () => {
     const inputText = document.getElementById('input-text') as HTMLInputElement
+
     if (inputText != undefined || inputText != null) {
       if (inputText.value == '') {
         setErrPopUp({ show: true, message: 'Empty field' })
       }
-      setValue(capitalizeFirstLetter(inputText.value.trim()))
+
+      setValue(capitalizeSentence(inputText.value))
       inputText.value = ''
     }
   }
@@ -44,7 +46,7 @@ const SearchInput: React.FC<Props> = ({ searchBy, setSearchBy, setValue, setErrP
   }
 
   useEffect(() => {
-    Aos.init({ duration: 1000, once: false })
+    Aos.init({ duration: 1000, once: true })
   })
 
   return (

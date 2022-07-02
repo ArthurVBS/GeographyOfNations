@@ -1,8 +1,12 @@
 import React, { useCallback, useEffect, useState } from 'react'
 
 import API from '../../api/connection'
-import { searchByNameDataType } from '../../types/data'
 import DataByCod from '../dataByCod'
+
+import getCurrencies from '../../utils/getCurrencies'
+import getLanguages from '../../utils/getLanguages'
+
+import { searchByNameDataType } from '../../types/data'
 import { BordersContainer, BordersTitle, Container, Flag, LinkMaps, Text } from './styles'
 
 type Props = {
@@ -33,43 +37,6 @@ const DataByName: React.FC<Props> = ({ value, setErrPopUp }) => {
     getData('name', value)
   }, [value])
 
-  const getCurrencies = (currenciesData?: Object) => {
-    if (currenciesData != undefined) {
-      const MAX_CURRENCIES = 3
-      const size = Object.keys(currenciesData).length
-      const currencies = []
-
-      for (let i = 0; i < size; i++) {
-        if (i < MAX_CURRENCIES) {
-          const newCurrenciesData = {
-            curr: Object.keys(currenciesData)[i],
-            name: Object.values(currenciesData)[i].name,
-            symbol: Object.values(currenciesData)[i].symbol
-          }
-          currencies.push(`(${newCurrenciesData.symbol}) ${newCurrenciesData.curr} - ${newCurrenciesData.name}`)
-        }
-      }
-      return currencies
-    }
-  }
-
-  const getLanguages = (languagesData?: object) => {
-    if (languagesData != undefined) {
-      const MAX_LANGUAGES = 3
-      const size = Object.keys(languagesData).length
-      const languages = []
-
-      for (let i = 0; i < size; i++) {
-        if (i < MAX_LANGUAGES) {
-          const newLanguagesData = Object.values(languagesData)[i]
-          languages.push(newLanguagesData)
-        }
-      }
-
-      return languages
-    }
-  }
-
   const renderBorderNations = () => {
     if (data.borders != undefined) {
       return (
@@ -98,8 +65,8 @@ const DataByName: React.FC<Props> = ({ value, setErrPopUp }) => {
           <Text><i className="fas fa-city"></i> {data.capital?.toString().replace(/,/g, ', ')}</Text>
           <Text><i className="fas fa-globe-americas"></i> {data.continents}</Text>
           <Text><i className="fas fa-users"></i> {data.population?.toLocaleString('pt-BR')}</Text>
-          <Text><i className="fas fa-language"></i> {getLanguages(data.languages)?.toString().replace(/,/g, ', ')}</Text>
-          <Text><i className="fas fa-coins"></i> {getCurrencies(data.currencies)?.toString().replace(/,/g, '; ')}</Text>
+          <Text><i className="fas fa-language"></i> {getLanguages(data.languages)}</Text>
+          <Text><i className="fas fa-coins"></i> {getCurrencies(data.currencies)}</Text>
 
           {renderBorderNations()}
 
@@ -113,11 +80,7 @@ const DataByName: React.FC<Props> = ({ value, setErrPopUp }) => {
     return null
   }
 
-  return (
-    <>
-      {renderData()}
-    </>
-  )
+  return renderData()
 }
 
 export default DataByName
