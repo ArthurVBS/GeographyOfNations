@@ -6,7 +6,7 @@ import DataByRegion from '../../components/dataByRegion'
 import PopUp from '../../components/popUp'
 import SearchInput from '../../components/searchInput'
 
-import isometricSearch from '../../assets/isometric_coding.svg'
+import isometricSearch from '../../assets/isometric_search.svg'
 import { useNavbar } from '../../contexts/NavbarContext'
 import { Container, Image, SearchSection, TextSection } from './styles'
 
