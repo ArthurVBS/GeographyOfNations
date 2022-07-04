@@ -9,7 +9,9 @@
   &nbsp;
   <img src="https://img.shields.io/badge/CSS-000?style=social&logo=css3&logoColor=469BD2">
   &nbsp;
-  <img src="https://img.shields.io/badge/JavaScript-000?style=social&logo=javascript&logoColor=469BD2">
+  <img src="https://img.shields.io/badge/TypeScript-000?style=social&logo=typescript&logoColor=469BD2">
+  &nbsp;
+  <img src="https://img.shields.io/badge/React-000?style=social&logo=react&logoColor=469BD2">
 </div>
 
 ## 🗣️ ReadMe:
@@ -19,7 +21,8 @@
 
 ## ✨ Sobre o projeto:
 
-- Um site que busca por e mostra as informações sobre uma nação... 🌎💻⛰️
+- 🌎 Um site que busca por e mostra as informações sobre uma nação.
+- 🛠️ Este projeto foi refeito usando 'React' e 'TypeScript'.
 
 ## 💻 Situação do projeto:
 
@@ -29,22 +32,32 @@
 
 - HTML
 - CSS
-- JavaScript
+- TypeScript
+- React
+- Styled-Components
+- Vite
 
 ## 📝 Features:
 
 - [x] Consumir uma API (Rest Countries)
-- [x] ScrollTrigger
-- [x] Header Dinâmico
-- [x] Efeito de digitação
+- [x] Tema Escuro/Claro
+- [x] Salvar o tema no local storage
 
 ## ⚙️ Pré-requisitos:
 
 - Acesso à internet - Navegador
 
+- Node.js
+
 ## 🚀 Como rodar a aplicação?
 
-- Acesse o [site da aplicação](https://arthurvbs.github.io/GeographyOfNations/)
+- 🌎 Acesse o [site da aplicação](https://arthurvbs.github.io/GeographyOfNations/).
+
+  `ou`
+
+- 💻 Baixe o ZIP ou Faça um clone da aplicação em sua máquina,
+- Abra o CMD e instale os módulos node/react: `npm install`,
+- Por fim, inicie um localhost: `npm run dev`.
 
 ## 📝 Licença
 
