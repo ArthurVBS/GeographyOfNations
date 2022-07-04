@@ -4,10 +4,12 @@ import Home from './pages/home'
 import Search from './pages/search'
 
 const MyRoutes: React.FC = () => {
+  const PATH = 'GeographyOfNations' // vite.config.ts
+
   return (
     <Routes>
-      <Route path='/' element={<Home />} />
-      <Route path='/search' element={<Search />} />
+      <Route path={PATH + '/'} element={<Home />} />
+      <Route path={PATH + '/search'} element={<Search />} />
     </Routes>
   )
 }

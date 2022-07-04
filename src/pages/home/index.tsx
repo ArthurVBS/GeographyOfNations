@@ -9,6 +9,8 @@ import { useNavbar } from '../../contexts/NavbarContext'
 const Home: React.FC = () => {
   const { setSelected } = useNavbar()
 
+  const PATH = '/GeographyOfNations' // vite.config.ts
+
   useEffect(() => {
     setSelected('home')
   }, [])
@@ -19,7 +21,7 @@ const Home: React.FC = () => {
         <Content data-aos='fade-right'>
           <Title>Welcome to the + Nations Project</Title>
           <Button>
-            <Link to='/search'>
+            <Link to={PATH + '/search'}>
               Search
               <i className="fas fa-arrow-right"></i>
             </Link>

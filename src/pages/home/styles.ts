@@ -5,7 +5,7 @@ export const Container = styled.main`
 `
 
 export const HomeSection = styled.section`
-  background: linear-gradient(#00000060, #000000D0 100%), url('./src/assets/pexels_world_and_pins.jpg');
+  background: linear-gradient(#00000060, #000000D0 100%), url('./pexels_world_and_pins.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -14,7 +14,7 @@ export const HomeSection = styled.section`
   padding: 16px;
 
   @media screen and (min-width: 528px) {
-    background: linear-gradient(to right, #00000080, #000000F0 100%), url('./src/assets/pexels_world_and_pins.jpg');
+    background: linear-gradient(to right, #00000080, #000000F0 100%), url('./pexels_world_and_pins.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;

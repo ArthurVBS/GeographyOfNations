@@ -11,14 +11,16 @@ const Navbar: React.FC = () => {
     window.scrollTo(0, 0)
   }
 
+  const PATH = 'GeographyOfNations' // vite.config.ts
+
   return (
     <Container isOpen={isOpen} onClick={() => closeSidebar()}>
       <IconLink selected={selected === 'home'}>
-        <Link to='/'>Home</Link>
+        <Link to={PATH + '/'}>Home</Link>
       </IconLink>
 
       <IconLink selected={selected === 'search'}>
-        <Link to='/search'>Search</Link>
+        <Link to={PATH + '/search'}>Search</Link>
       </IconLink>
     </Container>
   )
